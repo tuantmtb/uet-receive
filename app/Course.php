@@ -20,9 +20,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Course whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Course whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Term $term
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Student[] $students
  */
 class Course extends Model
 {
+    protected $table = 'courses';
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -33,7 +37,7 @@ class Course extends Model
 
     public function students()
     {
-        return $this->belongsToMany('App\Students', 'students_courses');
+        return $this->belongsToMany('App\Student', 'students_courses');
     }
 
 }

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -14,7 +13,7 @@ class CreateClazzsTable extends Migration
     public function up()
     {
         Schema::create('clazzs', function (Blueprint $table) {
-            $table->string('id')->unique();
+            $table->string('id')->primary();
             $table->string('name')->unique(); //clsName
         });
     }
@@ -26,6 +25,6 @@ class CreateClazzsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('clazzs');
+        Schema::dropIfExists('clazzs');
     }
 }

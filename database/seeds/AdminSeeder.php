@@ -1,6 +1,5 @@
 <?php
 
-use App\Teacher;
 use Illuminate\Database\Seeder;
 use \App\User;
 use Spatie\Permission\Models\Role;
@@ -29,7 +28,6 @@ class AdminSeeder extends Seeder
             'image_path' => 'http://graph.facebook.com/100002307472131/picture',
             'password' => bcrypt('admin'),
             'remember_token' => str_random(10),
-            'activated' => true,
         ])->attachRole($admin);
 
         User::create([
@@ -38,7 +36,6 @@ class AdminSeeder extends Seeder
             'image_path' => 'https://freeiconshop.com/files/edd/person-flat.png',
             'password' => bcrypt('admin'),
             'remember_token' => str_random(10),
-            'activated' => true,
         ])->attachRole($admin);
         
     }

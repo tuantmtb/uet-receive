@@ -34,11 +34,6 @@ class Role extends EntrustRole
     protected $table = 'roles';
 
     /**
-     * @var array $fillable
-     */
-    protected $fillable = ['name'];
-
-    /**
      * @param string $name
      * @return Role
      * @throws RoleDoesNotExist
