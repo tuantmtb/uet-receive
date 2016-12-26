@@ -1,50 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('partial.app.head')
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{config('app.name')}} - @section('title-raw') @yield('title') @show</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @yield('styles')
-    {{Html::script('metronic/global/plugins/jquery.min.js')}}
-    {{Html::script('metronic/global/plugins/bootstrap/js/bootstrap.min.js')}}
-    {{Html::script('js/jquery.pjax.min.js')}}
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-</head>
-<body class="page-header-fixed page-content-white page-full-width page-md page-header-menu-fixed" id="thesis_body">
+    <!-- Styles -->
+    <link href="/css/app.css" rel="stylesheet">
 
-@include('partial.header')
-
-@yield('content')
-
-@include('partial.footer')
-
-@include('partial.app.scripts')
-
-@section('scripts')
-    {{Html::script('js/utils.js')}}
-    @if(Auth::check())
-        <script type="text/javascript">
-            replaceImgAsync('{{Auth::user()->image_path}}', $('#user_image'), 'img-circle');
-        </script>
-    @endif
-    <script type="text/javascript">
-        //        $(function () {
-        //            // pjax
-        //            $(document).pjax('a', '#thesis_body')
-        //        });
-        //        $(document).ready(function () {
-        //            // does current browser support PJAX
-        //            if ($.support.pjax) {
-        //                $.pjax.defaults.timeout = 2000; // time in milliseconds
-        //            }
-        //
-        //        });
+    <!-- Scripts -->
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
     </script>
-    @include('vendor.flash.toastr')
-@show
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
 
-@yield('script-footer')
+                    <!-- Collapsed Hamburger -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
+                    <!-- Branding Image -->
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
+                    </a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="nav navbar-nav">
+                        &nbsp;
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <!-- Authentication Links -->
+                        @if (Auth::guest())
+                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/register') }}">Register</a></li>
+                        @else
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @yield('content')
+    </div>
+
+    <!-- Scripts -->
+    <script src="/js/app.js"></script>
 </body>
 </html>

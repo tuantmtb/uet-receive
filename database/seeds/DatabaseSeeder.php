@@ -11,15 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        /*Begin system seeder*/
-//        $this->call(ScaffoldInterfacesSeeder::class);
-        $this->call(PermissionsTableSeeder::class);
-
-        // Require call before: PermissionsTableSeeder
         $this->call(RolesTableSeeder::class);
 
-        // Require call before: RolesTableSeeder, PermissionsTableSeeder
+        // Require call before: RolesTableSeeder
         $this->call(AdminSeeder::class);
-        /*End system seeder*/
     }
 }

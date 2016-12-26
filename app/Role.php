@@ -14,7 +14,7 @@ use Zizaco\Entrust\EntrustRole;
  * @property string $name
  * @property string $display_name
  * @property string $description
- * @property Collection $users
+ * @property-read Collection|User[] $users
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static Builder|Role whereId($value)
