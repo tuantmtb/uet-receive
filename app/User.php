@@ -68,4 +68,13 @@ class User extends Authenticatable
     {
         return $this->can($permission, $requireAll);
     }
+
+    /**
+     * Cần check role
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function student()
+    {
+        return $this->hasOne('App\Student');
+    }
 }

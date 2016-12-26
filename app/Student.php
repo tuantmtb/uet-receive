@@ -25,5 +25,27 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Student extends Model
 {
-    //
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function clazz()
+    {
+        return $this->belongsTo('App\Clazz');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function courses()
+    {
+        return $this->belongsToMany('App\Courses', 'students_courses');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

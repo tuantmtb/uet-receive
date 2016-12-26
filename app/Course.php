@@ -23,5 +23,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Course extends Model
 {
-    //
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function term()
+    {
+        return $this->belongsTo('App\Term');
+    }
+
+    public function students()
+    {
+        return $this->belongsToMany('App\Students', 'students_courses');
+    }
+
 }
