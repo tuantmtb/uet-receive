@@ -20,6 +20,9 @@ class CreateStudentsTable extends Migration
             $table->date('date');
             $table->string('clazzs_id');
             $table->foreign('clazzs_id')->references('id')->on('clazzs')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
