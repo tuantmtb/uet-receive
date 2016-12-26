@@ -106,11 +106,15 @@ Có thể lỗi: [BadMethodCallException] This cache store does not support tagg
       
 ## Library
 
-        "zizaco/entrust": "5.2.x-dev",
-            "pda/pheanstalk": "^3.1"
+Composer.json:
+
+        {
+            "pda/pheanstalk": "^3.1",
+            "zizaco/entrust": "5.2.x-dev",
+            "barryvdh/laravel-debugbar": "^2.3",
             "barryvdh/laravel-ide-helper": "^2.2",
-                doctrine/dbal,
-                "laravelcollective/html": "dev-master"
+            "doctrine/dbal": "^2.5"
+        }
 
 ## Developers
 
