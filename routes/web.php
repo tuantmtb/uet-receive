@@ -58,3 +58,4 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/parse', 'SoapParserController@parse');
 Route::get('/recheck', 'ReceiveResultController@reCheck');
+Route::get('/test', 'ReceiveResultController@test');
