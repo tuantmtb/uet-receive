@@ -37,3 +37,6 @@ The .bat file store at /config/schedule.bat
 
         $ php --init
         $ composer update
+        
+## Gmail config
+> https://www.google.com/settings/security/lesssecureapps

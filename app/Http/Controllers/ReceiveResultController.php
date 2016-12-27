@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use GuzzleHttp\Client;
+use Illuminate\Mail\Message;
+use Mail;
 
 class ReceiveResultController extends Controller
 {
@@ -26,7 +28,7 @@ class ReceiveResultController extends Controller
         $regex = '(<a href="[^"]*" class="newslist" target="_blank"><b>[^<]*<\/b><\/a>)';
         preg_match_all($regex, $body, $matches);
 
-        foreach ($matches[0] as $i => $a) {
+        foreach ($matches[0] as $a) {
             $full_name = [];
             preg_match('(<b>.*<\/b>)', $a, $full_name);
             $full_name = $full_name[0];
@@ -47,7 +49,16 @@ class ReceiveResultController extends Controller
                 $course->link_origin = $link_origin;
                 $course->save();
 
-                // TODO: bắn mail
+                foreach ($course->students as $student) {
+                    $user = $student->user;
+                    try {
+                        Mail::queue('layouts.mail.course_noti', ['course' => $course], function (Message $msg) use ($user, $course) {
+                            $msg->to($user->email, $user->name)
+                                ->subject('[' . config('app.name') . '] Đã có điểm ' . $course->name);
+                        });
+                    } catch (\Exception $ignored) {
+                    }
+                }
             }
         }
 
