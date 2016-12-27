@@ -38,9 +38,19 @@ class Course extends Model
         return $this->belongsTo('App\Term');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function students()
     {
         return $this->belongsToMany('App\Student', 'students_courses');
     }
 
+    /**
+     * @param $student
+     */
+    public function assignStudent($student)
+    {
+        $this->students()->attach($student);
+    }
 }

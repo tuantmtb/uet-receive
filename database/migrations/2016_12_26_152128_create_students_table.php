@@ -15,8 +15,8 @@ class CreateStudentsTable extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
             $table->string('code')->unique(); //MaSV
-            $table->string('name'); //clsName
-            $table->date('date');
+            $table->string('name')->nullable(); //clsName
+            $table->date('date')->nullable();
             $table->timestamps();
 
             /*Foreign key*/

@@ -15,5 +15,8 @@ class DatabaseSeeder extends Seeder
 
         // Require call before: RolesTableSeeder
         $this->call(AdminSeeder::class);
+
+        $this->call(DumpJsonDataSeeder::class);
     }
+
 }

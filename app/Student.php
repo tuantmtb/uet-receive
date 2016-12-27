@@ -62,4 +62,14 @@ class Student extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+
+    /**
+     * Assign course
+     * @param $course
+     */
+    public function assignCourse($course)
+    {
+        $this->courses()->attach($course);
+    }
 }
