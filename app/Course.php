@@ -27,7 +27,7 @@ use Illuminate\Database\Query\Builder;
 class Course extends Model
 {
     protected $table = 'courses';
-    protected $fillable = ['name', 'code', 'term_id', 'created_at', 'updated_at'];
+    protected $fillable = ['name', 'code', 'term_id', 'credit', 'created_at', 'updated_at'];
 
 
     /**

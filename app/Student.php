@@ -37,6 +37,8 @@ class Student extends Model
      */
     protected $table = 'students';
 
+    protected $fillable = ['code', 'name', 'date', 'clazz_id', 'user_id', 'created_at', '$updated_at'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

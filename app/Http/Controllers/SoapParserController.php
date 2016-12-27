@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Clazz;
 use App\Course;
+use App\Student;
 use App\Term;
 use Artisaninweb\SoapWrapper\SoapWrapper;
 use File;
@@ -58,16 +59,16 @@ class SoapParserController extends Controller
          *
          * {
          * "no": "1",
-         * "code": "12020001",
-         * "fullname": "Chu Tâm Anh",
-         * "date": "25/3/1994",
-         * "class": "QH-2012-I/CQ-C-A-C",
-         * "course_code": "INT3307 1",
-         * "course_name": "An toàn và an ninh mạng",
+         * "code": "12020001", XXX
+         * "fullname": "Chu Tâm Anh", XXX
+         * "date": "25/3/1994", XXX
+         * "class": "QH-2012-I/CQ-C-A-C", XXX
+         * "course_code": "INT3307 1", XXX
+         * "course_name": "An toàn và an ninh mạng", XXX
          * "group": "CL",
-         * "credit": "3",
+         * "credit": "3", XXX
          * "note": "ĐK lần đầu",
-         * "term": "021"
+         * "term": "021" XXXX
          * }
          *
          */
@@ -94,6 +95,20 @@ class SoapParserController extends Controller
                     'name' => $result["course_name"],
                     'credit' => $result["credit"],
                     'term_id' => $term_ky1->id
+                ]);
+            }
+
+            $student = new Student();
+            $studentFind = Student::where('code', '=', $result["code"])->get();
+            if ($studentFind->count()) {
+                //found
+                $student = $studentFind;
+            } else {
+                $student = Student::create([
+                    'code' => $result["code"],
+                    'name' => $result["fullname"],
+                    'date' => $result["date"],
+                    'clazz_id' => $clazz->id
                 ]);
             }
 
