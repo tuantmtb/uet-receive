@@ -13,7 +13,7 @@
 
 // sitemaps
 Route::get('sitemap', 'SitemapsController@index')->name('sitemap.index');
-
+Auth::routes();
 
 /*Begin override auth route names*/
 // Authentication Routes...
@@ -35,7 +35,7 @@ Route::get('/', function () {
     return redirect('trang-chu');
 });
 
-Route::get('/trang-chu', 'HomeController@index')->name('home');
+Route::get('/trang-chu', 'HomeController@index')->name('index');
 Route::get('/gioi-thieu', 'HomeController@introduction')->name('introduction');
 
 
@@ -51,10 +51,9 @@ Route::post('tai-khoan/taikhoan/linh-vuc-huong-nghien-cuu', 'AccountController@u
 Route::get('quan-tri/tong-quan', 'AdminController@dashboard')->name('admin.dashboard')->middleware('role:admin');
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@home')->name('home');
 
 
 Route::get('/parse', 'SoapParserController@parse');
+Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
 Route::get('/recheck', 'ReceiveResultController@reCheck');

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Validator;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
@@ -23,16 +23,15 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/trang-chu';
 
     /**
      * Create a new controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -42,7 +41,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -57,7 +56,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
@@ -68,4 +67,18 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function showRegistrationForm()
+    {
+        \Session::flash('toastr', [
+            [
+                'title' => 'Từ chối truy cập',
+                'message' => 'Liên hệ quản trị để đăng ký tài khoản',
+                'level' => 'warning'
+            ]
+        ]);
+        return redirect()->route('login');
+    }
+
+
 }

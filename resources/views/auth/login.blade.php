@@ -1,68 +1,50 @@
-@extends('layouts.app')
+@extends('layouts.form.form', ['button' => 'Đăng nhập'])
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
+@section('title', 'Đăng nhập')
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+@section('form-open')
+    {{Form::open(['method' => 'post', 'route' => 'login.post', 'role' => 'form'])}}
+@endsection
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+@section('portlet-width', 'col-md-6 col-md-offset-3')
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+@section('form-body-inner')
+    <div class="form-group form-md-line-input {{$errors->has('email') ? 'has-error' : ''}}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+            {{Form::email('email', old('email'), ['class' => 'form-control', 'required' => '', 'maxLength' => 255])}}
+            {{Form::label('email', 'Địa chỉ email')}}
+        </div>
+    </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+    <div class="form-group form-md-line-input {{$errors->has('password') ? 'has-error' : ''}}">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+            {{Form::password('password', ['class' => 'form-control', 'required' => '', 'maxLength' => 255, 'minLength' => 5])}}
+            {{Form::label('password', 'Mật khẩu')}}
+        </div>
+    </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="form-group form-md-line-input">
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                <input type="checkbox" id="rememberme" class="md-check" name="rememberme" checked="checked"/>
+                <label for="rememberme">
+                    <span></span>
+                    <span class="check"></span>
+                    <span class="box"></span> Nhớ phiên đăng nhập </label>
             </div>
         </div>
     </div>
-</div>
+@endsection
+
+@section('form-actions')
+    <div class="col-md-9">
+        <div class="md-checkbox-list">
+            <div class="md-checkbox">
+                {{Html::linkRoute('forgotpw.show', 'Quên mật khẩu?')}}
+            </div>
+        </div>
+    </div>
+
 @endsection

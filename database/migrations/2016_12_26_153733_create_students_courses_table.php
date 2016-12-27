@@ -16,11 +16,12 @@ class CreateStudentsCoursesTable extends Migration
             /*Foreign keys*/
             $table->integer('student_id')->unsigned();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
-
             $table->integer('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
-
             $table->primary(['student_id', 'course_id']);
+            $table->boolean('sent_mail')->nullable();
+            $table->boolean('sent_noti')->nullable();
+            $table->boolean('sent_chatbot')->nullable();
         });
     }
 
