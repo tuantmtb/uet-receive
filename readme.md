@@ -1,4 +1,4 @@
-# UET Thesis
+# UET Receive
 
 > Develop website : Receive results from UET examination
 
