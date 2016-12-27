@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Student;
 use GuzzleHttp\Client;
 use Illuminate\Mail\Message;
 use Mail;
@@ -48,17 +49,6 @@ class ReceiveResultController extends Controller
                 $link_origin = 'http://www.coltech.vnu.edu.vn' . $link_origin[0];
                 $course->link_origin = $link_origin;
                 $course->save();
-
-                foreach ($course->students as $student) {
-                    $user = $student->user;
-                    try {
-                        Mail::queue('layouts.mail.course_noti', ['course' => $course], function (Message $msg) use ($user, $course) {
-                            $msg->to($user->email, $user->name)
-                                ->subject('[' . config('app.name') . '] Đã có điểm ' . $course->name);
-                        });
-                    } catch (\Exception $ignored) {
-                    }
-                }
             }
         }
 

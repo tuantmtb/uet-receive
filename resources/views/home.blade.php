@@ -140,8 +140,9 @@
                     <div class="col-md-8">
                         <div class="portlet light">
                             <h2>Các môn học kỳ I</h2>
-                            <div class="table-scrollable">
-                                <table class="table table-hover">
+
+                            <div class="table-scrollable" style="display: none">
+                                <table class="table table-hover" id="table-course">
                                     <thead>
                                     <tr>
                                         <th> #</th>
@@ -151,34 +152,8 @@
                                         <th> Trạng thái</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td> 1</td>
-                                        <td> Xác suất thống kê</td>
-                                        <td> MAT1003 5</td>
-                                        <td> 3</td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Đã có điểm </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 2</td>
-                                        <td> Tín hiệu và hệ thống</td>
-                                        <td> FLT2012 3</td>
-                                        <td> 3</td>
-                                        <td>
-                                            <span class="label label-sm label-info"> Chưa có điểm </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 3</td>
-                                        <td> Thiết kế giao diện người dùng</td>
-                                        <td> FLT2012 3</td>
-                                        <td> 3</td>
-                                        <td>
-                                            <span class="label label-sm label-info"> Chưa có điểm </span>
-                                        </td>
-                                    </tr>
+                                    <tbody id="tbody-table-course">
+
                                     </tbody>
                                 </table>
                             </div>
@@ -198,8 +173,9 @@
     <script type="text/javascript">
 
         $("#code").keyup(function ($e) {
-
+            $("#tbody-table-course").text("");
             if ($("#code").val().length == 8) {
+                $(".table-scrollable").show();
                 var code = $("#code").val();
                 var url = 'api/findStudentByCode/' + code;
 //                console.log(url);
@@ -208,8 +184,23 @@
                         console.log("success");
                         $("#fullname").val(data["name"]);
                         $("#class").text(data["class"]);
+                        $("#tbody-table-course").text("");
+                        $.each(data["courses"], function (i, course) {
+                            if (course.link_origin) {
+                                $("#tbody-table-course").append("<tr> <td> " + (i + 1) +
+                                    "</td> <td>" + course.name + "</td> <td>" + course.code + "</td> <td>" + course.credit + "</td> <td> <span class=\"label label-sm label-success\"> Đã có điểm </span> </td></tr>"
+                                );
+                            } else {
+                                $("#tbody-table-course").append("<tr> <td> " + (i + 1) +
+                                    "</td> <td>" + course.name + "</td> <td>" + course.code + "</td> <td>" + course.credit + "</td> <td> <span class=\"label label-sm label-info\"> Chưa có điểm </span> </td></tr>"
+                                );
+                            }
+                        })
                     }
                 });
+            } else {
+
+                $(".table-scrollable").hide();
             }
 
         });

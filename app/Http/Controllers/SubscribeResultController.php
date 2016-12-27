@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Student;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Mail;
 use Validator;
 
 class SubscribeResultController extends Controller
@@ -98,5 +101,39 @@ class SubscribeResultController extends Controller
         }
 
 
+    }
+
+    public function checkSubcribe()
+    {
+        $courses = Course::whereNotNull('link_origin')->get();
+
+        foreach ($courses as $course) {
+
+            /**
+             * @var Student
+             */
+            $students = $course->students;
+            foreach ($students as $student) {
+
+                /**
+                 * @var User
+                 */
+                $user = $student->user;
+                if ($user != null && $user->email != null) {
+//                    print_r($user->email);
+
+                    try {
+                        Mail::queue('layouts.mail.course_noti', ['course' => $course], function (Message $msg) use ($user, $course) {
+                            $msg->to($user->email, $user->name)
+                                ->subject('[' . config('app.name') . '] Đã có điểm môn' . $course->name);
+                        });
+                    } catch (\Exception $ignored) {
+
+                    }
+                }
+
+            }
+
+        }
     }
 }
