@@ -4,9 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1aac94330dadd54942af4451562690f3",
-    "content-hash": "34bb966733a11eff83197f8c19a40df8",
+    "hash": "70dbf9b244d0d39cbf88db171130a5db",
+    "content-hash": "2868e023fd8d3040238307bf108d8ea7",
     "packages": [
+        {
+            "name": "anhskohbo/no-captcha",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anhskohbo/no-captcha.git",
+                "reference": "5831a8aadeb9bceb9262093b4e03a1333dd6b537"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/5831a8aadeb9bceb9262093b4e03a1333dd6b537",
+                "reference": "5831a8aadeb9bceb9262093b4e03a1333dd6b537",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*",
+                "php": ">=5.5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Anhskohbo\\NoCaptcha\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "anhskohbo",
+                    "email": "anhskohbo@gmail.com"
+                }
+            ],
+            "description": "No CAPTCHA reCAPTCHA For Laravel.",
+            "keywords": [
+                "captcha",
+                "laravel",
+                "laravel4",
+                "laravel5",
+                "no-captcha",
+                "recaptcha"
+            ],
+            "time": "2016-12-07 08:27:09"
+        },
         {
             "name": "artisaninweb/laravel-soap",
             "version": "0.3.0.1",
@@ -2037,16 +2083,16 @@
         },
         {
             "name": "spatie/laravel-permission",
-            "version": "1.5.3",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-permission.git",
-                "reference": "a67a0dca1d3aab7316d2e265c358f3d23ba9278c"
+                "reference": "88eff43971306fabb2b1635ebc92636add27a59b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/a67a0dca1d3aab7316d2e265c358f3d23ba9278c",
-                "reference": "a67a0dca1d3aab7316d2e265c358f3d23ba9278c",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/88eff43971306fabb2b1635ebc92636add27a59b",
+                "reference": "88eff43971306fabb2b1635ebc92636add27a59b",
                 "shasum": ""
             },
             "require": {
@@ -2086,7 +2132,7 @@
                 "security",
                 "spatie"
             ],
-            "time": "2016-12-14 23:41:39"
+            "time": "2016-12-27 10:34:27"
         },
         {
             "name": "swiftmailer/swiftmailer",

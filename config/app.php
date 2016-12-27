@@ -169,10 +169,13 @@ return [
          */
         Laracasts\Flash\FlashServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Artisaninweb\SoapWrapper\ServiceProvider::class,
+
+
         //
 
         /*
@@ -238,7 +241,9 @@ return [
         'Flash' => Laracasts\Flash\Flash::class,
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'SoapWrapper' => 'Artisaninweb\SoapWrapper\Facades\SoapWrapper',
+
 
     ],
 

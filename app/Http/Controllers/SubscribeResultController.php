@@ -17,7 +17,8 @@ class SubscribeResultController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'code' => 'integer|required|between:1,99999999',
-            'email' => 'email|required|max:255'
+            'email' => 'email|required|max:255',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         if ($validator->fails()) {

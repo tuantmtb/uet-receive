@@ -74,53 +74,6 @@
             <div class="page-content">
                 <!--BEGIN: Intro-->
                 <div class="row">
-                    <div class="col-md-8">
-                        <div class="portlet light">
-                            <h2>Các môn học kỳ I</h2>
-                            <div class="table-scrollable">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th> #</th>
-                                        <th> Môn học</th>
-                                        <th> Mã lớp</th>
-                                        <th> Số TC</th>
-                                        <th> Trạng thái</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td> 1</td>
-                                        <td> Xác suất thống kê</td>
-                                        <td> MAT1003 5</td>
-                                        <td> 3</td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Đã có điểm </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 2</td>
-                                        <td> Tín hiệu và hệ thống</td>
-                                        <td> FLT2012 3</td>
-                                        <td> 3</td>
-                                        <td>
-                                            <span class="label label-sm label-info"> Chưa có điểm </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td> 3</td>
-                                        <td> Thiết kế giao diện người dùng</td>
-                                        <td> FLT2012 3</td>
-                                        <td> 3</td>
-                                        <td>
-                                            <span class="label label-sm label-info"> Chưa có điểm </span>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-4">
                         <div class="portlet light">
                             <div class="portlet-title">
@@ -171,14 +124,64 @@
                                     <div class="col-md-2">Lớp</div>
                                     <div class="col-md-8">QHI-2014-C-CLC</div>
                                 </div>
-
+                                <div class="form-group">
+                                    {!! Form::captcha() !!}
+                                </div>
                             </div>
+
                             <div class="form-actions noborder text-center">
                                 {{Form::submit('Đăng ký', ['class' => 'btn blue btn-lg'])}}
                             </div>
                             {{Form::close()}}
 
 
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="portlet light">
+                            <h2>Các môn học kỳ I</h2>
+                            <div class="table-scrollable">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th> #</th>
+                                        <th> Môn học</th>
+                                        <th> Mã lớp</th>
+                                        <th> Số TC</th>
+                                        <th> Trạng thái</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td> 1</td>
+                                        <td> Xác suất thống kê</td>
+                                        <td> MAT1003 5</td>
+                                        <td> 3</td>
+                                        <td>
+                                            <span class="label label-sm label-success"> Đã có điểm </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 2</td>
+                                        <td> Tín hiệu và hệ thống</td>
+                                        <td> FLT2012 3</td>
+                                        <td> 3</td>
+                                        <td>
+                                            <span class="label label-sm label-info"> Chưa có điểm </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 3</td>
+                                        <td> Thiết kế giao diện người dùng</td>
+                                        <td> FLT2012 3</td>
+                                        <td> 3</td>
+                                        <td>
+                                            <span class="label label-sm label-info"> Chưa có điểm </span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

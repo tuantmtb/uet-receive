@@ -115,6 +115,8 @@ Composer.json:
             "barryvdh/laravel-ide-helper": "^2.2",
             "doctrine/dbal": "^2.5",
             "artisaninweb/laravel-soap": "0.3.*"
+            "anhskohbo/no-captcha":...
+
             
         }
 

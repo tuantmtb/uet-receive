@@ -42,6 +42,8 @@ class Course extends Model
      */
     protected $fillable = ['name', 'code', 'term_id', 'credit', 'link_origin', 'link_remote'];
 
+    protected $hidden = ['created_at', 'updated_at', 'term_id', 'pivot'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
