@@ -17,12 +17,12 @@ class CreateCoursesTable extends Migration
             $table->string('code')->unique(); //crdCode
             $table->string('name'); //crdName
             $table->integer('credit')->nullable(); // số tín chỉ
+            $table->string('link_origin')->nullable();
+            $table->string('link_remote')->nullable();
             $table->timestamps();
 
             /*Foreign keys*/
             $table->integer('term_id')->unsigned()->index();
-            $table->string('link_origin')->nullable();
-            $table->string('link_remote')->nullable();
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
         });
     }

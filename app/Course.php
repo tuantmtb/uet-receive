@@ -12,6 +12,8 @@ use Illuminate\Database\Query\Builder;
  * @property string $code
  * @property string $name
  * @property int $credit
+ * @property string $link_origin
+ * @property string $link_remote
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property int $term_id
@@ -24,6 +26,8 @@ use Illuminate\Database\Query\Builder;
  * @method static Builder|Course whereCreatedAt($value)
  * @method static Builder|Course whereUpdatedAt($value)
  * @method static Builder|Course whereTermId($value)
+ * @method static Builder|Course whereLinkOrigin($value)
+ * @method static Builder|Course whereLinkRemote($value)
  * @mixin \Eloquent
  */
 class Course extends Model
@@ -36,7 +40,7 @@ class Course extends Model
     /**
      * @var array
      */
-    protected $fillable = ['name', 'code', 'term_id', 'credit', 'created_at', 'updated_at', 'link_origin', 'link_remote'];
+    protected $fillable = ['name', 'code', 'term_id', 'credit', 'link_origin', 'link_remote'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
