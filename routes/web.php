@@ -51,7 +51,9 @@ Route::post('tai-khoan/taikhoan/linh-vuc-huong-nghien-cuu', 'AccountController@u
 Route::get('quan-tri/tong-quan', 'AdminController@dashboard')->name('admin.dashboard')->middleware('role:admin');
 
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('/parse', 'SoapParserController@parse');

@@ -172,7 +172,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
-
+        Artisaninweb\SoapWrapper\ServiceProvider::class,
         //
 
         /*
@@ -238,6 +238,7 @@ return [
         'Flash' => Laracasts\Flash\Flash::class,
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'SoapWrapper' => 'Artisaninweb\SoapWrapper\Facades\SoapWrapper',
 
     ],
 

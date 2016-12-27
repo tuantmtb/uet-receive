@@ -113,7 +113,8 @@ Composer.json:
             "zizaco/entrust": "5.2.x-dev",
             "barryvdh/laravel-debugbar": "^2.3",
             "barryvdh/laravel-ide-helper": "^2.2",
-            "doctrine/dbal": "^2.5"
+            "doctrine/dbal": "^2.5",
+            "artisaninweb/laravel-soap": "0.3.*"
         }
 
 ## Developers
