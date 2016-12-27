@@ -1,0 +1,39 @@
+/*header*/
+.about-header h2, .stories-header h2 {
+    letter-spacing: 1px;
+    text-transform: uppercase
+}
+
+.card-icon, .stories-cont .photo {
+    width: 100%
+}
+
+.about-header, .card-desc, .card-icon, .card-title, .stories-cont .title, .stories-footer, .stories-header {
+    text-align: center
+}
+
+.about-header {
+    background-image: url('../../../vnu/img/bg.jpg');
+    background-position: center;
+    margin: 0 -20px
+}
+
+.about-header h1 {
+    color: #fff;
+    /*font-size: 55px;*/
+    font-weight: 600;
+    margin-top: 50px;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .2)
+}
+
+.about-header h2 {
+    color: #fff;
+    /*font-size: 22px;*/
+    font-weight: 400;
+    margin-top: 30px;
+    margin-bottom: 40px
+}
+
+.layout-form-register{
+    padding: 0;
+}

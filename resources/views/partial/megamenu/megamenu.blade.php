@@ -4,27 +4,8 @@
 <div class="hor-menu  hor-menu-light">
     <ul class="nav navbar-nav">
         <li class="menu-dropdown classic-menu-dropdown @yield('menu.home')">
-            {{Html::linkRoute('home', 'Trang chủ')}}
+            {{Html::linkRoute('index', 'Trang chủ')}}
         </li>
-        <li class="menu-dropdown classic-menu-dropdown @yield('menu.category')">
-            <a href="javascript:"> Danh mục
-                <span class="arrow"></span>
-            </a>
-            <ul class="dropdown-menu pull-left">
-                <li class="dropdown-submenu">
-                    <a href="javascript:" class="nav-link nav-toggle">
-                        Đơn vị
-                        <span class="arrow"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class=" ">
-                            {{--TODO: update--}}
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-
 
         @if(Entrust::hasRole('admin'))
             <li class="menu-dropdown classic-menu-dropdown @yield('menu.admin')">
@@ -38,7 +19,7 @@
         @endif
 
         <li class="menu-dropdown classic-menu-dropdown @yield('menu.introduction')">
-            {{Html::linkRoute('introduction', 'Giới thiệu')}}
+            <a href="https://facebook.com/sdpttl">Fanpage</a>
         </li>
 
     </ul>

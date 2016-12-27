@@ -5,7 +5,7 @@
         <div class="container">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <a href="{{URL::route('home')}}">
+                <a href="{{URL::route('index')}}">
                     {{Html::image('img/logo-uet-thesis.png', 'logo', ['class' => 'logo-default img-responsive'])}}
                 </a>
             </div>
@@ -19,12 +19,12 @@
     </div>
     <!-- END HEADER TOP -->
     <!-- BEGIN HEADER MENU -->
-    <div class="page-header-menu">
-        <div class="container">
-            {{--@include('partial.megamenu.megamenu_searchbox')--}}
-            @include('partial.megamenu.megamenu')
-        </div>
-    </div>
-    <!-- END HEADER MENU -->
+{{--<div class="page-header-menu">--}}
+{{--<div class="container">--}}
+{{--@include('partial.megamenu.megamenu_searchbox')--}}
+{{--@include('partial.megamenu.megamenu')--}}
+{{--</div>--}}
+{{--</div>--}}
+<!-- END HEADER MENU -->
 </div>
 <!-- END HEADER -->

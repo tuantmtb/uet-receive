@@ -1,0 +1,36 @@
+h3>a:hover{
+    text-decoration: none;
+}
+.blog-post-content{
+    background-color: #fff;
+    margin: -15px;
+    padding: 15px;
+}
+.blog-post-content>.row{
+    padding-left: 10px ;
+}
+
+.blog-post-meta{
+    display: inline;
+    padding: 5px;
+}
+hr{
+    border-color:#0d638f;
+    position: relative;
+    bottom: 15px;
+}
+.blog-container{
+    margin: -15px;
+    padding: 15px;
+
+}
+
+.blog-single-content{
+    padding:20px 20px;
+}
+p{
+    text-indent: 10px;
+}
+div.row>img{
+    padding: 0 10px;
+}

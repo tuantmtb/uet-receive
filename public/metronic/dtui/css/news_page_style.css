@@ -1,0 +1,275 @@
+
+h4, h5, h6, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+h4, h5, h6 {
+    color: #333333;
+}
+
+h4, h5 {
+    font-family: 'latosemibold', sans-serif;
+}
+
+h4 {
+    font-size: 18px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+p {
+    line-height: 24px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover, a:focus, a:visited {
+    text-decoration: none;
+    outline: none;
+}
+
+.tran3s {
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.round-border {
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+footer .top-footer .footer-about ul li a:hover {
+    background: #3598dc;
+}
+
+/*======================= SubsCribe Banner ================*/
+.subscribe-banner {
+    padding: 20px 0 20px 15px;
+    text-align: left;
+}
+
+.subscribe-banner input {
+    width: 255px;
+    height: 45px;
+    background: #fff;
+    border: none;
+    padding: 0 20px;
+    font-weight: 600;
+    margin-right: 0;
+}
+
+.subscribe-banner button {
+    color: #fff;
+    width: 90px;
+    line-height: 43px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    background: transparent;
+    margin-top: 10px;
+    margin-left: 150px;
+}
+
+.subscribe-banner button:hover {
+    background: #fff;
+    color: #3598DC;
+}
+
+.subscribe-banner form {
+    width: 50%;
+    margin: 0;
+}
+
+/*======================= Footer ==============*/
+footer {
+    background: #30465c;
+}
+
+footer .top-footer h4, footer .top-footer p, footer .top-footer a, footer .top-footer ul li, footer .top-footer h6 {
+    color: #fff;
+}
+
+footer .top-footer h4 {
+    text-transform: uppercase;
+    margin-bottom: 52px;
+    font-family: "UTM Facebook", sans-serif;
+    font-size: 25px;
+
+}
+
+footer .top-footer p {
+    font-family: "UTM Avo", sans-serif;
+
+}
+
+footer .top-footer .footer-about {
+    padding-right: 0;
+}
+
+footer .top-footer .footer-about p:first-letter {
+    font-size: 37px;
+    color: #3598DC;
+}
+
+footer .top-footer .footer-about p {
+    margin: 0 0 30px 0;
+}
+
+footer .top-footer .footer-about > a {
+    display: block;
+    margin: 15px 0;
+}
+
+footer .top-footer .footer-about > a i {
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+footer .top-footer .footer-about > a:hover,
+footer .footer-quick-link ul li a:hover {
+    color: #3598DC;
+}
+
+footer .top-footer .footer-about ul li {
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 20px;
+}
+
+footer .top-footer .footer-about ul li a {
+    width: 50px;
+    height: 50px;
+    background: #212121;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
+footer .top-footer .footer-contact {
+    padding-left: 25px;
+}
+
+footer .top-footer .footer-contact ul {
+    margin-top: 68px;
+}
+
+footer .top-footer .footer-contact ul li {
+    display: block;
+    width: 298px;
+    height: 62px;
+    position: relative;
+    text-align: left;
+}
+
+footer .top-footer .footer-contact ul li i {
+    width: 35px;
+    height: 35px;
+    line-height: 20px;
+    text-align: center;
+    margin-left: -10px;
+    color: white;
+    font-size: 21px;
+}
+
+footer .top-footer .footer-contact ul li i.fa-map-marker {
+    font-size: 18px;
+}
+
+footer .top-footer .footer-contact ul li, footer .top-footer .footer-contact ul li a {
+    font-size: 16px;
+    margin-top: -5px;
+    font-family: "UTM Avo", sans-serif;
+}
+
+footer .footer-quick-link {
+    padding-left: 20px;
+}
+
+footer .footer-quick-link ul li a {
+    margin-bottom: 10px;
+    display: block;
+    font-family: "UTM Avo", sans-serif;
+}
+
+footer .footer-quick-link ul li a i {
+    font-size: 16px;
+    margin-right: 5px;
+
+}
+
+footer .footer-event .item > ul > li {
+    position: relative;
+    padding-left: 60px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+footer .footer-event .item ul li .date {
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 21px;
+    padding-top: 6px;
+}
+
+footer .footer-event ul {
+    font-size: 16px;
+    color: white;
+    font-family: "UTM Avo", sans-serif;
+}
+
+footer .footer-event input {
+    margin-left: -15px;
+}
+
+footer .bottom-footer {
+    background: #090909;
+    text-align: center;
+    padding: 25px 0 25px 0;
+    margin-top: 75px;
+}
+
+footer .bottom-footer p {
+    color: #c5c5c5;
+}
+
+footer .bottom-footer p span {
+    font-size: 14px;
+}
+
+footer .bottom-footer a {
+    color: #3598DC;
+}
+
+footer .bottom-footer a:hover {
+    color: #fff;
+}
+
+.logo-student {
+    font-size: 18px;
+    font-family: 'latosemibold', sans-serif;
+    font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

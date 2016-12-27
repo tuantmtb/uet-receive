@@ -1,0 +1,9 @@
+/*override*/
+/*search form sidebar*/
+.page-sidebar .sidebar-search.sidebar-search-bordered, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .sidebar-search.sidebar-search-bordered {
+    margin: 8px 15px;
+}
+
+.label:not(.md-skip) {
+    text-transform: none !important;
+}
