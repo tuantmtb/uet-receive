@@ -136,7 +136,7 @@
                             <div class="card-title">
                                 <span> Nhận điểm thi UET tự động qua email</span>
                             </div>
-                            {{Form::open(['method' => 'post', 'route' => 'home', 'role' => 'form'])}}
+                            {{Form::open(['method' => 'post', 'route' => 'subscribe.post', 'role' => 'form'])}}
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <ul>
