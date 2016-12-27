@@ -10,21 +10,21 @@
                 </a>
             </div>
             <!-- END LOGO -->
-            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
-            <a href="javascript:" class="menu-toggler"></a>
-            <!-- END RESPONSIVE MENU TOGGLER -->
 
+            {{--<!-- BEGIN RESPONSIVE MENU TOGGLER -->--}}
+            {{--<a href="javascript:" class="menu-toggler"></a>--}}
+            {{--<!-- END RESPONSIVE MENU TOGGLER -->--}}
             {{--            @include('partial.topmenu.topmenu');--}}
+            
         </div>
     </div>
     <!-- END HEADER TOP -->
-    <!-- BEGIN HEADER MENU -->
-{{--<div class="page-header-menu">--}}
-{{--<div class="container">--}}
-{{--@include('partial.megamenu.megamenu_searchbox')--}}
-{{--@include('partial.megamenu.megamenu')--}}
-{{--</div>--}}
-{{--</div>--}}
-<!-- END HEADER MENU -->
+    {{--<!-- BEGIN HEADER MENU -->--}}
+    {{--<div class="page-header-menu">--}}
+    {{--<div class="container">--}}
+    {{--@include('partial.megamenu.megamenu')--}}
+    {{--</div>--}}
+    {{--</div>--}}
+    {{--<!-- END HEADER MENU -->--}}
 </div>
 <!-- END HEADER -->

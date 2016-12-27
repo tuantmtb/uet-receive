@@ -16,7 +16,7 @@
 
 // view
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/gioi-thieu', 'HomeController@introduction')->name('introduction');
+//Route::get('/gioi-thieu', 'HomeController@introduction')->name('introduction');
 Route::post('/dang-ky-nhan-email', 'SubscribeResultController@store')->name('subscribe.post'); // form dang ky
 
 // logic

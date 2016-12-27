@@ -23,9 +23,8 @@ body {
 }
 
 .about-header {
-    height: 500px;
-    background-image: url(../../dtui/img/bg.jpg);
-    background-position: center;
+    height: 700px;
+    background: url(../../dtui/img/bg.jpg) center;
     margin: 0 -20px
 }
 
