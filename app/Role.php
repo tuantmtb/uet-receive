@@ -14,9 +14,10 @@ use Zizaco\Entrust\EntrustRole;
  * @property string $name
  * @property string $display_name
  * @property string $description
- * @property-read Collection|User[] $users
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read Collection|User[] $users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $perms
  * @method static Builder|Role whereId($value)
  * @method static Builder|Role whereName($value)
  * @method static Builder|Role whereDisplayName($value)
@@ -24,7 +25,6 @@ use Zizaco\Entrust\EntrustRole;
  * @method static Builder|Role whereUpdatedAt($value)
  * @method static Builder|Role whereCreatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $perms
  */
 class Role extends EntrustRole
 {

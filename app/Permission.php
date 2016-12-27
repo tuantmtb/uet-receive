@@ -13,6 +13,7 @@ use Zizaco\Entrust\EntrustPermission;
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
  * @method static Builder|Permission whereId($value)
  * @method static Builder|Permission whereName($value)
  * @method static Builder|Permission whereDisplayName($value)
@@ -20,7 +21,6 @@ use Zizaco\Entrust\EntrustPermission;
  * @method static Builder|Permission whereUpdatedAt($value)
  * @method static Builder|Permission whereCreatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
  */
 class Permission extends EntrustPermission
 {

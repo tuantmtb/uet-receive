@@ -8,7 +8,7 @@ use Illuminate\Database\Query\Builder;
 /**
  * App\Term
  *
- * @property string $id
+ * @property int $id
  * @property string $name
  * @property string $termID
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses

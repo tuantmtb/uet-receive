@@ -9,7 +9,7 @@ use Illuminate\Database\Query\Builder;
 /**
  * App\Clazz
  *
- * @property string $id
+ * @property int $id
  * @property string $name
  * @property Collection | Student[] $students
  * @method static Builder|Clazz whereId($value)

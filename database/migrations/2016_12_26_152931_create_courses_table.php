@@ -17,7 +17,7 @@ class CreateCoursesTable extends Migration
             $table->string('code')->unique(); //crdCode
             $table->string('name'); //crdName
             
-            $table->integer('term_id')->unsigned();
+            $table->integer('term_id')->unsigned()->index();
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
 
             $table->timestamps();

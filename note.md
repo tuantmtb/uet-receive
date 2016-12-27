@@ -1,7 +1,7 @@
 ## Fluent's method not found in migration 
-Added the following code to end of _ide_helper.php file. And the problem was solved.
+> https://github.com/barryvdh/laravel-ide-helper/issues/193
 
-https://github.com/barryvdh/laravel-ide-helper/issues/193
+Added the following code to end of _ide_helper.php file. And the problem was solved.
 
     namespace Illuminate\Support{
         /**
@@ -24,6 +24,16 @@ https://github.com/barryvdh/laravel-ide-helper/issues/193
     
     
 ## Windows scheduler
-The .bat file store at /config/schedule.bat
- 
-http://stackoverflow.com/questions/36305146/how-to-run-task-scheduler-in-windows-10-with-laravel
+> http://stackoverflow.com/questions/36305146/how-to-run-task-scheduler-in-windows-10-with-laravel
+
+The .bat file store at /config/schedule.bat 
+
+## PHP soap extensions on Windows
+> http://stackoverflow.com/questions/2509143/php-how-do-i-install-soap-extension
+
+1: Find extension=php_soap.dll in php.ini and remove the semicolon(;)
+
+2: Run these commands
+
+        $ php --init
+        $ composer update

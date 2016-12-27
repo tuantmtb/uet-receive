@@ -9,11 +9,11 @@ use Illuminate\Database\Query\Builder;
 /**
  * App\Student
  *
- * @property string $id
+ * @property int $id
  * @property string $code
  * @property string $name
  * @property Carbon $date
- * @property string $clazz_id
+ * @property int $clazz_id
  * @property int $user_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
