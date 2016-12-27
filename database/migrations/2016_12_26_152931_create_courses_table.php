@@ -16,7 +16,7 @@ class CreateCoursesTable extends Migration
             $table->increments('id');
             $table->string('code')->unique(); //crdCode
             $table->string('name'); //crdName
-            
+            $table->integer('credit')->nullable(); // số tín chỉ
             $table->integer('term_id')->unsigned()->index();
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
 

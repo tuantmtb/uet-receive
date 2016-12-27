@@ -20,6 +20,9 @@ class Clazz extends Model
 {
     protected $table = 'clazzs';
 
+    protected $fillable = ['name'];
+
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

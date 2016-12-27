@@ -16,7 +16,7 @@ class CreateTermsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('termID')->unique();
-
+            $table->timestamps();
         });
     }
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Clazz;
+use App\Course;
+use App\Term;
 use Artisaninweb\SoapWrapper\SoapWrapper;
 use File;
 use Illuminate\Http\Request;
@@ -75,10 +77,27 @@ class SoapParserController extends Controller
 //        $json_data = File::get($json_path);
         $results = json_decode(file_get_contents($json_path), true);
 //        dd($results);
+        $term_ky1 = Term::firstOrCreate(['name' => "Học kỳ 1 năm 2016-2017", 'termID' => '021']);
         foreach ($results as $result) {
-            Clazz::findOrNew([
-                'name' => $result["class"]
-            ]);
+            $clazz = Clazz::firstOrCreate(['name' => $result["class"]]);
+
+
+            $course = new Course();
+            $courseFind = Course::where('code', '=', $result["course_code"])->get();
+            if ($courseFind->count()) {
+                //found
+                $course = $courseFind;
+            } else {
+                // not found -> create new
+                $course = Course::create([
+                    'code' => $result["course_code"],
+                    'name' => $result["course_name"],
+                    'credit' => $result["credit"],
+                    'term_id' => $term_ky1->id
+                ]);
+            }
+
+
         }
     }
 

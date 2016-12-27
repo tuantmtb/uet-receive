@@ -24,6 +24,8 @@ class Term extends Model
      */
     protected $table = 'terms';
 
+    protected $fillable = ['name', 'termID'];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
