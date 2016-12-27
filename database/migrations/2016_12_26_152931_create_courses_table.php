@@ -13,11 +13,13 @@ class CreateCoursesTable extends Migration
     public function up()
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->string('id')->primary();; //crdId
+            $table->increments('id');
             $table->string('code')->unique(); //crdCode
             $table->string('name'); //crdName
-            $table->string('terms_id')->index();
-            $table->foreign('terms_id')->references('id')->on('clazzs')->onUpdate('cascade')->onDelete('cascade');
+            
+            $table->integer('term_id')->unsigned();
+            $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
