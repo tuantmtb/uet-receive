@@ -16,7 +16,10 @@ class SubscribeHelperApiController extends Controller
     {
         $studentFind = Student::where('code', '=', $code)->get();
         if ($studentFind->count() < 1) {
-            return response()->json(null, 404);
+            $output = [];
+            $output["status"] = "not_found";
+            $output["info"] = "If you hack system, anw contact me: fb.com/tuantmtb";
+            return response()->json($output, 404);
         }
         $output = [];
 
@@ -24,9 +27,11 @@ class SubscribeHelperApiController extends Controller
          * @var Student
          */
         $student = $studentFind->first();
+        $output["status"] = "success";
         $output["name"] = $student->name;
         $output["class"] = $student->clazz->name;
         $output["courses"] = $student->courses;
+        $output["info"] = "If you hack system, anw contact me: fb.com/tuantmtb";
         return response()->json($output);
     }
 

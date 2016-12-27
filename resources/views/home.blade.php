@@ -63,7 +63,7 @@
     <div class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="color: white; margin-left: 30px">Hóng điểm thi UET nhanh nhất</h1>
+                <h1 style="color: white; margin-left: 30px">Hóng điểm thi UET tốc độ ánh sáng</h1>
             </div>
         </div>
     </div>
@@ -103,7 +103,7 @@
                                 <div class="form-group form-md-line-input form-md-floating-label has-info {{$errors->has('email') ? 'has-error' : ''}}">
                                     <div class="input-group left-addon">
                                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
-                                        {{Form::text('code', old('code'), ['class' => 'form-control', 'required' => '', 'maxLength' => 10])}}
+                                        {{Form::text('code', old('code'), ['class' => 'form-control', 'id'=>'code','required' => '', 'maxLength' => 10])}}
                                         {{Form::label('code', 'Mã sinh viên')}}
                                     </div>
                                 </div>
@@ -117,12 +117,12 @@
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label has-error">
                                     <input type="text" class="form-control edited" readonly=""
-                                           value="Trần Minh Tuấn" id="form_control_1">
+                                           value="" id="fullname">
                                     <label for="form_control_1">Họ tên</label>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-md-2">Lớp</div>
-                                    <div class="col-md-8">QHI-2014-C-CLC</div>
+                                    <div class="col-md-8" id="class"></div>
                                 </div>
                                 <div class="form-group">
                                     {!! Form::captcha() !!}
@@ -191,4 +191,27 @@
         <!-- END CONTENT -->
     </div>
     <!-- END CONTAINER -->
+@endsection
+
+@section('scripts')
+    @parent
+    <script type="text/javascript">
+
+        $("#code").keyup(function ($e) {
+
+            if ($("#code").val().length == 8) {
+                var code = $("#code").val();
+                var url = 'api/findStudentByCode/' + code;
+//                console.log(url);
+                $.get(url, function (data) {
+                    if (data["status"] == "success") {
+                        console.log("success");
+                        $("#fullname").val(data["name"]);
+                        $("#class").text(data["class"]);
+                    }
+                });
+            }
+
+        });
+    </script>
 @endsection
