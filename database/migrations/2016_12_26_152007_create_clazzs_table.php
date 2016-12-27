@@ -14,7 +14,7 @@ class CreateClazzsTable extends Migration
     {
         Schema::create('clazzs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name'); //clsName
+            $table->string('name')->unique(); //clsName
             $table->timestamps();
         });
     }
