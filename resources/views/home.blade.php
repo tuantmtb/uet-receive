@@ -7,7 +7,6 @@
 @section('styles')
     {{Html::style('metronic/dtui/css/index.css')}}
     {{Html::style('metronic/dtui/css/main.css')}}
-
     <style>
         .fw-wrapper.page-title {
             padding: 0 0 62px 0;
@@ -22,18 +21,29 @@
         }
 
         .fw-wrapper {
-            padding: 60px 0;
+            padding: 70px 0;
             background: #fff;
         }
 
         .fw-wrapper h1 {
-            margin-top: 70px !important;
+            margin-top: 35px !important;
         }
 
         header {
             display: block;
         }
 
+        .page-header {
+            height: inherit !important;
+        }
+
+        .card-icon i {
+            margin: 0;
+        }
+
+        .card-title {
+            margin-bottom: 10px;
+        }
     </style>
 @endsection
 
@@ -53,7 +63,7 @@
     <div class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="color: white; margin-left: 20px">Hóng điểm thi UET nhanh nhất</h1>
+                <h1 style="color: white; margin-left: 30px">Hóng điểm thi UET nhanh nhất</h1>
             </div>
         </div>
     </div>
@@ -66,9 +76,50 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="portlet light">
-                            <h2>Nhập mã sinh viên & email</h2>
+                            <h2>Các môn học kỳ I</h2>
+                            <div class="table-scrollable">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th> #</th>
+                                        <th> Môn học</th>
+                                        <th> Mã lớp</th>
+                                        <th> Số TC</th>
+                                        <th> Trạng thái</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td> 1</td>
+                                        <td> Xác suất thống kê</td>
+                                        <td> MAT1003 5</td>
+                                        <td> 3</td>
+                                        <td>
+                                            <span class="label label-sm label-success"> Đã có điểm </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 2</td>
+                                        <td> Tín hiệu và hệ thống</td>
+                                        <td> FLT2012 3</td>
+                                        <td> 3</td>
+                                        <td>
+                                            <span class="label label-sm label-info"> Chưa có điểm </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 3</td>
+                                        <td> Thiết kế giao diện người dùng</td>
+                                        <td> FLT2012 3</td>
+                                        <td> 3</td>
+                                        <td>
+                                            <span class="label label-sm label-info"> Chưa có điểm </span>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
                     </div>
                     <div class="col-md-4">
                         <div class="portlet light">
@@ -85,68 +136,49 @@
                             <div class="card-title">
                                 <span> Nhận điểm thi UET tự động qua email</span>
                             </div>
-                            <form role="form">
-                                <div class="form-body">
+                            {{Form::open(['method' => 'post', 'route' => 'home', 'role' => 'form'])}}
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <div class="form-body">
+                                <div class="form-group form-md-line-input form-md-floating-label has-info {{$errors->has('email') ? 'has-error' : ''}}">
+                                    <div class="input-group left-addon">
+                                        <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
+                                        {{Form::text('code', old('code'), ['class' => 'form-control', 'required' => '', 'maxLength' => 10])}}
+                                        {{Form::label('code', 'Mã sinh viên')}}
+                                    </div>
+                                </div>
 
-                                    <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                        <input type="text" class="form-control input-lg" id="form_control_1">
-                                        <label for="form_control_1">Mã sinh viên</label>
-                                    </div>
-                                    <div class="form-group form-md-line-input form-md-floating-label has-info">
-                                        <input type="text" class="form-control input-lg" id="form_control_1">
-                                        <label for="form_control_1">Email</label>
-                                    </div>
-                                    <div class="form-group form-md-line-input form-md-floating-label">
-                                        <div class="form-control form-control-static"> QH2014-C-CLC</div>
-                                        <label for="form_control_1">Khóa</label>
+                                <div class="form-group form-md-line-input form-md-floating-label has-info {{$errors->has('email') ? 'has-error' : ''}}">
+                                    <div class="input-group left-addon">
+                                        <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                        {{Form::email('email', old('email'), ['class' => 'form-control', 'required' => '', 'maxLength' => 255])}}
+                                        {{Form::label('email', 'Email')}}
                                     </div>
                                 </div>
-                                <div class="table-scrollable">
-                                    <table class="table table-hover">
-                                        <thead>
-                                        <tr>
-                                            <th> #</th>
-                                            <th> Môn học</th>
-                                            <th> Mã lớp</th>
-                                            <th> Số TC</th>
-                                            <th> Trạng thái</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td> 1</td>
-                                            <td> Xác suất thống kê</td>
-                                            <td> MAT1003 5</td>
-                                            <td> 3</td>
-                                            <td>
-                                                <span class="label label-sm label-success"> Đã có điểm </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> 2</td>
-                                            <td> Tín hiệu và hệ thống</td>
-                                            <td> FLT2012 3</td>
-                                            <td> 3</td>
-                                            <td>
-                                                <span class="label label-sm label-info"> Chưa có điểm </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> 3</td>
-                                            <td> Thiết kế giao diện người dùng</td>
-                                            <td> FLT2012 3</td>
-                                            <td> 3</td>
-                                            <td>
-                                                <span class="label label-sm label-info"> Chưa có điểm </span>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="form-group form-md-line-input form-md-floating-label has-error">
+                                    <input type="text" class="form-control edited" readonly=""
+                                           value="Trần Minh Tuấn" id="form_control_1">
+                                    <label for="form_control_1">Họ tên</label>
                                 </div>
-                                <div class="form-actions noborder text-center">
-                                    <button type="button" class="btn blue btn-lg">Đăng ký</button>
+                                <div class="row form-group">
+                                    <div class="col-md-2">Lớp</div>
+                                    <div class="col-md-8">QHI-2014-C-CLC</div>
                                 </div>
-                            </form>
+
+                            </div>
+                            <div class="form-actions noborder text-center">
+                                {{Form::submit('Đăng ký', ['class' => 'btn blue btn-lg'])}}
+                            </div>
+                            {{Form::close()}}
+
+
                         </div>
                     </div>
                 </div>
