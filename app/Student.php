@@ -2,29 +2,41 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * App\Student
  *
- * @property int $id
+ * @property string $id
  * @property string $code
  * @property string $name
- * @property string $date
- * @property string $clazzs_id
+ * @property Carbon $date
+ * @property string $clazz_id
+ * @property int $user_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereCode($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereDate($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereClazzsId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Student whereUpdatedAt($value)
+ * @property-read \App\Clazz $clazz
+ * @property-read \App\User $user
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses
+ * @method static Builder|Student whereId($value)
+ * @method static Builder|Student whereCode($value)
+ * @method static Builder|Student whereName($value)
+ * @method static Builder|Student whereDate($value)
+ * @method static Builder|Student whereClazzId($value)
+ * @method static Builder|Student whereUserId($value)
+ * @method static Builder|Student whereCreatedAt($value)
+ * @method static Builder|Student whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Student extends Model
 {
+    /**
+     * @var string
+     */
+    protected $table = 'students';
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -38,7 +50,7 @@ class Student extends Model
      */
     public function courses()
     {
-        return $this->belongsToMany('App\Courses', 'students_courses');
+        return $this->belongsToMany('App\Course', 'students_courses');
     }
 
     /**

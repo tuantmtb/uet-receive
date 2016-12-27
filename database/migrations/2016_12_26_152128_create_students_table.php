@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -14,16 +13,18 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->string('id')->unique();; //stdId
+            $table->string('id')->primary();; //stdId
             $table->string('code')->unique(); //MaSV
             $table->string('name'); //clsName
             $table->date('date');
-            $table->string('clazzs_id');
-            $table->foreign('clazzs_id')->references('id')->on('clazzs')->onUpdate('cascade')->onDelete('cascade');
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
+
+            /*Foreign key*/
+            $table->string('clazz_id')->index();
+            $table->foreign('clazz_id')->references('id')->on('clazzs')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -34,6 +35,6 @@ class CreateStudentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('students');
+        Schema::dropIfExists('students');
     }
 }

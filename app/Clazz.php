@@ -2,21 +2,23 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Query\Builder;
 
 /**
  * App\Clazz
  *
- * @property int $id
+ * @property string $id
  * @property string $name
- * @property Collection $students
- * @method static \Illuminate\Database\Query\Builder|\App\Clazz whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Clazz whereName($value)
+ * @property Collection | Student[] $students
+ * @method static Builder|Clazz whereId($value)
+ * @method static Builder|Clazz whereName($value)
  * @mixin \Eloquent
  */
 class Clazz extends Model
 {
-
+    protected $table = 'clazzs';
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
