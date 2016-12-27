@@ -32,11 +32,11 @@ class Course extends Model
      * @var string
      */
     protected $table = 'courses';
-    
+
     /**
      * @var array
      */
-    protected $fillable = ['name', 'code', 'term_id', 'credit'];
+    protected $fillable = ['name', 'code', 'term_id', 'credit', 'created_at', 'updated_at', 'link_origin', 'link_remote'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

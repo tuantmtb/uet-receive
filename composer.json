@@ -9,16 +9,17 @@
   "type": "project",
   "require": {
     "php": ">=5.6.4",
+    "artisaninweb/laravel-soap": "0.3.*",
     "barryvdh/laravel-debugbar": "^2.3",
     "barryvdh/laravel-ide-helper": "^2.2",
     "doctrine/dbal": "^2.5",
+    "guzzlehttp/guzzle": "^6.2",
     "laracasts/flash": "^2.0",
     "laravel/framework": "5.3.*",
     "laravelcollective/html": "dev-master",
     "pda/pheanstalk": "^3.1",
     "spatie/laravel-permission": "^1.5",
-    "zizaco/entrust": "5.2.x-dev",
-    "artisaninweb/laravel-soap": "0.3.*"
+    "zizaco/entrust": "5.2.x-dev"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

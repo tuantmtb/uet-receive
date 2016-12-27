@@ -21,6 +21,8 @@ class CreateCoursesTable extends Migration
 
             /*Foreign keys*/
             $table->integer('term_id')->unsigned()->index();
+            $table->string('link_origin')->nullable();
+            $table->string('link_remote')->nullable();
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
         });
     }
