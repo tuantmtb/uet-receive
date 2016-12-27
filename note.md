@@ -1,5 +1,5 @@
 ## Fluent's method not found in migration 
-I added the following code to end of _ide_helper.php file. And the problem was solved.
+Added the following code to end of _ide_helper.php file. And the problem was solved.
 
 https://github.com/barryvdh/laravel-ide-helper/issues/193
 
@@ -21,3 +21,9 @@ https://github.com/barryvdh/laravel-ide-helper/issues/193
          */
         class Fluent {}
     }
+    
+    
+## Windows scheduler
+The .bat file store at /config/schedule.bat
+ 
+http://stackoverflow.com/questions/36305146/how-to-run-task-scheduler-in-windows-10-with-laravel
