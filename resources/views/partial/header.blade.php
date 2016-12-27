@@ -5,7 +5,7 @@
         <div class="container">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <a href="{{URL::route('index')}}">
+                <a href="{{URL::route('home')}}">
                     {{Html::image('img/logo-uet-thesis.png', 'logo', ['class' => 'logo-default img-responsive'])}}
                 </a>
             </div>
@@ -14,7 +14,7 @@
             <a href="javascript:" class="menu-toggler"></a>
             <!-- END RESPONSIVE MENU TOGGLER -->
 
-            @include('partial.topmenu.topmenu');
+            {{--            @include('partial.topmenu.topmenu');--}}
         </div>
     </div>
     <!-- END HEADER TOP -->

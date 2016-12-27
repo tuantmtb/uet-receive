@@ -37,14 +37,3 @@
         </div>
     </div>
 @endsection
-
-@section('form-actions')
-    <div class="col-md-9">
-        <div class="md-checkbox-list">
-            <div class="md-checkbox">
-                {{Html::linkRoute('forgotpw.show', 'Quên mật khẩu?')}}
-            </div>
-        </div>
-    </div>
-
-@endsection
