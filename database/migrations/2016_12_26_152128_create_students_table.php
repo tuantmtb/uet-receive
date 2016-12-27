@@ -13,14 +13,14 @@ class CreateStudentsTable extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->string('id')->primary();; //stdId
+            $table->increments('id');
             $table->string('code')->unique(); //MaSV
             $table->string('name'); //clsName
             $table->date('date');
             $table->timestamps();
 
             /*Foreign key*/
-            $table->string('clazz_id')->index();
+            $table->integer('clazz_id')->unsigned()->index();
             $table->foreign('clazz_id')->references('id')->on('clazzs')->onUpdate('cascade')->onDelete('cascade');
 
             $table->integer('user_id')->unsigned()->index();

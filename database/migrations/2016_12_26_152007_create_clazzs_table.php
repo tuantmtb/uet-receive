@@ -13,8 +13,8 @@ class CreateClazzsTable extends Migration
     public function up()
     {
         Schema::create('clazzs', function (Blueprint $table) {
-            $table->string('id')->primary();
-            $table->string('name')->unique(); //clsName
+            $table->increments('id');
+            $table->string('name'); //clsName
         });
     }
 
@@ -25,6 +25,6 @@ class CreateClazzsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clazzs');
+        Schema::drop('clazzs');
     }
 }
