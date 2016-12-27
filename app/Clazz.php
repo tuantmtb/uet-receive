@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
@@ -11,15 +12,25 @@ use Illuminate\Database\Query\Builder;
  *
  * @property int $id
  * @property string $name
- * @property Collection | Student[] $students
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @property-read Collection | Student[] $students
  * @method static Builder|Clazz whereId($value)
  * @method static Builder|Clazz whereName($value)
+ * @method static Builder|Clazz whereCreatedAt($value)
+ * @method static Builder|Clazz whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Clazz extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'clazzs';
 
+    /**
+     * @var array
+     */
     protected $fillable = ['name'];
 
 

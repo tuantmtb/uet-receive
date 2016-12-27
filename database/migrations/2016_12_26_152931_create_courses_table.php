@@ -17,10 +17,11 @@ class CreateCoursesTable extends Migration
             $table->string('code')->unique(); //crdCode
             $table->string('name'); //crdName
             $table->integer('credit')->nullable(); // số tín chỉ
+            $table->timestamps();
+
+            /*Foreign keys*/
             $table->integer('term_id')->unsigned()->index();
             $table->foreign('term_id')->references('id')->on('terms')->onDelete('cascade');
-
-            $table->timestamps();
         });
     }
 

@@ -13,10 +13,10 @@ use Illuminate\Database\Query\Builder;
  * @property string $code
  * @property string $name
  * @property Carbon $date
- * @property int $clazz_id
- * @property int $user_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property int $clazz_id
+ * @property int $user_id
  * @property-read \App\Clazz $clazz
  * @property-read \App\User $user
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses
@@ -37,7 +37,10 @@ class Student extends Model
      */
     protected $table = 'students';
 
-    protected $fillable = ['code', 'name', 'date', 'clazz_id', 'user_id', 'created_at', '$updated_at'];
+    /**
+     * @var array
+     */
+    protected $fillable = ['code', 'name', 'date', 'clazz_id', 'user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

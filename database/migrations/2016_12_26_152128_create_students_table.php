@@ -23,7 +23,7 @@ class CreateStudentsTable extends Migration
             $table->integer('clazz_id')->unsigned()->index();
             $table->foreign('clazz_id')->references('id')->on('clazzs')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->index()->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }

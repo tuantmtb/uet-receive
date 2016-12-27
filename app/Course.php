@@ -11,24 +11,32 @@ use Illuminate\Database\Query\Builder;
  * @property int $id
  * @property string $code
  * @property string $name
- * @property int $term_id
+ * @property int $credit
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property int $term_id
  * @property-read \App\Term $term
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Student[] $students
  * @method static Builder|Course whereId($value)
  * @method static Builder|Course whereCode($value)
  * @method static Builder|Course whereName($value)
- * @method static Builder|Course whereTermsId($value)
+ * @method static Builder|Course whereCredit($value)
  * @method static Builder|Course whereCreatedAt($value)
  * @method static Builder|Course whereUpdatedAt($value)
+ * @method static Builder|Course whereTermId($value)
  * @mixin \Eloquent
  */
 class Course extends Model
 {
+    /**
+     * @var string
+     */
     protected $table = 'courses';
-    protected $fillable = ['name', 'code', 'term_id', 'credit', 'created_at', 'updated_at'];
-
+    
+    /**
+     * @var array
+     */
+    protected $fillable = ['name', 'code', 'term_id', 'credit'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

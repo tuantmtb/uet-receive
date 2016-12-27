@@ -44,6 +44,16 @@ class User extends Authenticatable
     protected $table = 'users';
 
     /**
+     * @var array
+     */
+    protected $fillable = ['name', 'email', 'image_path', 'remember_token'];
+
+    /**
+     * @var array
+     */
+    protected $hidden = ['password', 'remember_token'];
+
+    /**
      * Cần check role
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
