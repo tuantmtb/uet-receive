@@ -1,5 +1,7 @@
 <?php
 
+use Artisaninweb\SoapWrapper\Service;
+use Artisaninweb\SoapWrapper\SoapWrapper;
 use Illuminate\Database\Seeder;
 
 class WSSeeder extends Seeder
@@ -29,7 +31,7 @@ class WSSeeder extends Seeder
     public function run()
     {
 
-        $this->soapWrapper->add('Currency', function ($service) {
+        $this->soapWrapper->add('Currency', function (Service $service) {
             $service
                 ->wsdl('http://112.137.129.98/qlgd/MainManagement.asmx?WSDL')
                 ->trace(true);
