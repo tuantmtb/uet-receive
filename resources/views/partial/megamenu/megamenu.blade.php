@@ -4,19 +4,8 @@
 <div class="hor-menu  hor-menu-light">
     <ul class="nav navbar-nav">
         <li class="menu-dropdown classic-menu-dropdown @yield('menu.home')">
-            {{Html::linkRoute('index', 'Trang chủ')}}
+            {{Html::linkRoute('home', 'Trang chủ')}}
         </li>
-
-        @if(Entrust::hasRole('admin'))
-            <li class="menu-dropdown classic-menu-dropdown @yield('menu.admin')">
-                <a href="#">Quản trị
-                    <span class="arrow"></span>
-                </a>
-                <ul class="dropdown-menu pull-left">
-                    <li>TODO</li>
-                </ul>
-            </li>
-        @endif
 
         <li class="menu-dropdown classic-menu-dropdown @yield('menu.introduction')">
             <a href="https://facebook.com/sdpttl">Fanpage</a>

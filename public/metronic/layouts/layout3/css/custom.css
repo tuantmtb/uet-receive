@@ -10,3 +10,7 @@
 .page-header .page-header-top .page-logo .logo-default {
     margin-top: 15px;
 }
+
+html {
+    overflow-x: hidden;
+}

@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Receive result UET Examination',
+    'name' => 'Hệ thống hóng điểm thi UET',
 
     /*
     |--------------------------------------------------------------------------

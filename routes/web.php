@@ -15,7 +15,7 @@
 //Route::get('sitemap', 'SitemapsController@index')->name('sitemap.index');
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/gioi-thieu', 'HomeController@introduction')->name('introduction');
+//Route::get('/gioi-thieu', 'HomeController@introduction')->name('introduction');
 
 Route::get('/parse', 'SoapParserController@parse');
 Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
