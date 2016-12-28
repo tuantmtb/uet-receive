@@ -3,11 +3,11 @@
 > Develop website : Receive results from UET examination
 
 ## Version
-Status: Developing
+Status: Alpha version
 
 Start date: 26/12/2016 
 
-Submission date: 14/12/2016
+Submission date: 18/12/2016
 
 ## Structure
 
@@ -19,9 +19,8 @@ Detailed guides in /uet-resource-doc older.
 
 Design database at /uet-resource-doc/database/Design.png
 
-Template import file excel at /uet-resource-doc/templates
 
-## Technology & Library
+## Technology Overview
 Bootstrap
 
 Jquery
@@ -29,6 +28,10 @@ Jquery
 Laravel 5
 
 ## Requirement system
+
+PHP 5.4 above
+
+Support cron job
 
 ## Deployment
 
@@ -59,15 +62,15 @@ Install manual
         
 ## Development
 
-#### Step 1: Install /vendor & /node_modules
+#### Step 1: Install Composer
             
+            $ composer update
             $ composer install
-            $ npm install
             
 #### Step 2: Database & migration
             
             Tạo database uet-thesis
-            Copy .env.example > .env, cấu hình lại DB, MAIL (uet.thesis@gmail.com | thesis.uet)
+            Copy .env.example > .env, cấu hình lại DB, MAIL, google captcha 
             $ php artisan migrate --seed
             
             Generate ide-helper: 
@@ -87,8 +90,7 @@ Install manual
                 
 ## Common problem
 
-1. Không seed migrate được:
-Có thể lỗi: [BadMethodCallException] This cache store does not support tagging.
+1. Can not seed migrate:
             
             edit ".env": set CACHE_DRIVER=array
             $ php artisan config:cache
@@ -97,15 +99,21 @@ Có thể lỗi: [BadMethodCallException] This cache store does not support tagg
             $ composer dump-autoload
             $ php artisan db:seed hoặc $ php artisan migrate:refresh --seed
             
-2. Form không post được:
+2. Form can not post data:
 
-            Thêm {{Form::token()}} vào trong form
+            Add {{Form::token()}} in form view
             
 ## PhpStorm plugin instructions
     
             Settings > Plugins > Browse repositories... > Tìm 'Laravel plugin' > Cài 
             Settings > Languages and Frameworks > Php > Laravel > Bật 'Enable plugin for this project'
             
+## TODO
+
+    Update score student
+    Analytic result score
+    Recommend subject
+      
       
 ## Library
 

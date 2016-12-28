@@ -83,7 +83,7 @@ class ReceiveResultController extends Controller
                     } else {
 
                         try {
-                            Mail::queue('layouts . mail . course_noti', ['course' => $course, 'user' => $user], function (Message $msg) use ($user, $course, $student) {
+                            Mail::queue('layouts.mail.course_noti', ['course' => $course, 'user' => $user], function (Message $msg) use ($user, $course, $student) {
                                 $msg->to($user->email, $user->name)
                                     ->subject('[' . config('app . name') . '] Đã có điểm môn ' . $course->name);
                                 $student->pivot->sent_mail = 1;
