@@ -5,61 +5,20 @@
 @section('menu.home', 'active')
 
 @section('styles')
+    @parent
     {{Html::style('metronic/dtui/css/index.css')}}
     {{Html::style('metronic/dtui/css/main.css')}}
-    <style>
-        .fw-wrapper.page-title {
-            padding: 0 0 62px 0;
-            background: transparent;
-        }
+    {{Html::style('css/receive-uet.css')}}
 
-        .fw-wrapper.lgm-purple {
-            background: #652b7c url('http://www.lagomframework.com/images/ui/lagom-hero.png') no-repeat;
-            background-position: center top;
-            background-attachment: fixed;
+    <meta property="og:url" content="http://ueter.xyz"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Hóng điểm thi UET tốc độ ánh sáng"/>
+    <meta property="og:description" content="Hệ thống nhận kết quả thi trường UET nhanh nhất"/>
 
-        }
-
-        .fw-wrapper {
-            padding: 70px 0;
-            background: #fff;
-        }
-
-        .fw-wrapper h1 {
-            margin-top: 35px !important;
-        }
-
-        header {
-            display: block;
-        }
-
-        .page-header {
-            height: inherit !important;
-        }
-
-        .card-icon i {
-            margin: 0;
-        }
-
-        .card-title {
-            margin-bottom: 10px;
-        }
-    </style>
 @endsection
 
 @section('content')
-    <!--BEGIN Cover-->
-    {{--<div class="container-fluid">--}}
-    {{--<div class="row about-header">--}}
-    {{--<div class="col-md-12">--}}
-    {{--<h1>{{config('app.name')}}</h1>--}}
-    {{--<h2>Hóng điểm thi tự động</h2>--}}
-    {{--{{Html::linkRoute('introduction', 'Giới thiệu hệ thống', [],['class'=>'btn btn-lg btn-success'])}}--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    {{--</div>--}}
-    <!--END Cover-->
-    <!-- BEGIN CONTAINER -->
+
     <div class="fw-wrapper lgm-purple page-title">
         <div class="row">
             <div class="col-md-12">
@@ -68,11 +27,11 @@
         </div>
     </div>
     <div class="page-container">
-        <!-- BEGIN CONTENT -->
+        {{--<!-- BEGIN CONTENT -->--}}
         <div class="page-content-wrapper">
-            <!-- BEGIN PAGE CONTENT BODY -->
+            {{--<!-- BEGIN PAGE CONTENT BODY -->--}}
             <div class="page-content">
-                <!--BEGIN: Intro-->
+                {{--<!--BEGIN: Intro-->--}}
                 <div class="row">
                     <div class="col-md-4">
                         <div class="portlet light">
@@ -103,7 +62,7 @@
                                 <div class="form-group form-md-line-input form-md-floating-label has-info {{$errors->has('email') ? 'has-error' : ''}}">
                                     <div class="input-group left-addon">
                                         <span class="input-group-addon"><i class="fa fa-graduation-cap"></i></span>
-                                        {{Form::text('code', old('code'), ['class' => 'form-control', 'id'=>'code','required' => '', 'maxLength' => 10])}}
+                                        {{Form::number('code', old('code'), ['class' => 'form-control', 'id'=>'code','required' => '', 'maxLength' => 10])}}
                                         {{Form::label('code', 'Mã sinh viên')}}
                                     </div>
                                 </div>
@@ -130,7 +89,9 @@
                             </div>
 
                             <div class="form-actions noborder text-center">
-                                {{Form::submit('Đăng ký', ['class' => 'btn blue btn-lg'])}}
+                                <button class="btn blue btn-lg" type="submit"><i class="fa fa-check"></i> Đăng ký
+                                </button>
+                                {{--<i class="fa fa-check"></i>{{Form::submit('Đăng ký', ['class' => 'btn blue btn-lg'])}}--}}
                             </div>
                             {{Form::close()}}
 
@@ -139,7 +100,17 @@
                     </div>
                     <div class="col-md-8">
                         <div class="portlet light">
-                            <h2>Các môn học kỳ I</h2>
+                            <div class="m-heading-1 border-green">
+                                <h2 id="title-helper">Các môn học kỳ I <span style="display: none;"
+                                                                             id="fullname-intro"></span></h2>
+                            </div>
+                            <div class="row" id="dialog-helper">
+                                <div class="col-md-6">
+                                    <div class="note note-success" id="dialog-helper-data">
+                                        Nhập Mã sinh viên và Email
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="table-scrollable" style="display: none">
                                 <table class="table table-hover" id="table-course">
@@ -157,52 +128,34 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <div class="m-heading-1 border-blue">
+                                <h4><i class="fa fa-facebook-square"></i><a href="https://www.facebook.com/sdpttl/"
+                                                                            target="_blank"> facebook</a></h4>
+                            </div>
+
+                            <div class="fb-page" data-href="https://www.facebook.com/sdpttl/"
+                                 data-small-header="true"
+                                 data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
+                                <blockquote cite="https://www.facebook.com/sdpttl/" class="fb-xfbml-parse-ignore"><a
+                                            href="https://www.facebook.com/sdpttl/">SDP- Students developing
+                                        project</a>
+                                </blockquote>
+                            </div>
+                            <div id="fb-root"></div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- END PAGE CONTENT BODY -->
+            {{--<!-- END PAGE CONTENT BODY -->--}}
         </div>
-        <!-- END CONTENT -->
+        {{--<!-- END CONTENT -->--}}
     </div>
-    <!-- END CONTAINER -->
+    {{--<!-- END CONTAINER -->--}}
 @endsection
 
 @section('scripts')
     @parent
-    <script type="text/javascript">
-
-        $("#code").keyup(function ($e) {
-            $("#tbody-table-course").text("");
-            if ($("#code").val().length == 8) {
-                $(".table-scrollable").show();
-                var code = $("#code").val();
-                var url = 'api/findStudentByCode/' + code;
-//                console.log(url);
-                $.get(url, function (data) {
-                    if (data["status"] == "success") {
-                        console.log("success");
-                        $("#fullname").val(data["name"]);
-                        $("#class").text(data["class"]);
-                        $("#tbody-table-course").text("");
-                        $.each(data["courses"], function (i, course) {
-                            if (course.link_origin) {
-                                $("#tbody-table-course").append("<tr> <td> " + (i + 1) +
-                                    "</td> <td>" + course.name + "</td> <td>" + course.code + "</td> <td>" + course.credit + "</td> <td> <span class=\"label label-sm label-success\"> Đã có điểm </span> </td></tr>"
-                                );
-                            } else {
-                                $("#tbody-table-course").append("<tr> <td> " + (i + 1) +
-                                    "</td> <td>" + course.name + "</td> <td>" + course.code + "</td> <td>" + course.credit + "</td> <td> <span class=\"label label-sm label-info\"> Chưa có điểm </span> </td></tr>"
-                                );
-                            }
-                        })
-                    }
-                });
-            } else {
-
-                $(".table-scrollable").hide();
-            }
-
-        });
-    </script>
+    {{Html::script('js/receive-uet.js')}}
 @endsection

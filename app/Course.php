@@ -57,7 +57,7 @@ class Course extends Model
      */
     public function students()
     {
-        return $this->belongsToMany('App\Student', 'students_courses');
+        return $this->belongsToMany('App\Student', 'students_courses')->withPivot(['sent_mail', 'sent_noti', 'sent_chatbot']);
     }
 
     /**

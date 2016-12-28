@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Student;
+use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Mail\Message;
 use Mail;
@@ -51,7 +52,56 @@ class ReceiveResultController extends Controller
                 $course->save();
             }
         }
-
+        echo '<div>reCheck UET success</div>';
+        \Log::info('reCheck UET success ' . Carbon::now());
+        $this->checkSubcribe();
         return redirect('/');
+    }
+
+    /**
+     * Kiểm tra những môn có trên hệ thống và sent mail đến subcribe
+     */
+    public function checkSubcribe()
+    {
+        $courses = Course::whereNotNull('link_origin')->get();
+
+        foreach ($courses as $course) {
+            /**
+             * @var Student
+             */
+            $students = $course->students;
+            foreach ($students as $student) {
+                /**
+                 * @var User
+                 */
+                $user = $student->user;
+                if ($user != null && $user->email != null) {
+                    if ($student->pivot->sent_mail == 1) {
+                        // đã gửi mail
+                        echo '<div>' . ($user->email) . ' - ' . $course->name . ' - sent before </div > ';
+                        \Log::info(($user->email) . ' - ' . $course->name . ' - sent before - ' . Carbon::now());
+                    } else {
+
+                        try {
+                            Mail::queue('layouts . mail . course_noti', ['course' => $course, 'user' => $user], function (Message $msg) use ($user, $course, $student) {
+                                $msg->to($user->email, $user->name)
+                                    ->subject('[' . config('app . name') . '] Đã có điểm môn ' . $course->name);
+                                $student->pivot->sent_mail = 1;
+                                $student->pivot->save();
+                                echo ' < div>' . ($user->email) . ' - ' . $course->name . ' - prepare sending mail </div > ';
+                                \Log::info(($user->email) . ' - ' . $course->name . ' - prepare sending mail - ' . Carbon::now());
+                            });
+
+                        } catch (\Exception $ignored) {
+                            echo $ignored;
+                            \Log::warning('Mail Exception - ' . $ignored);
+                        }
+                    }
+                }
+            }
+        }
+        echo '<div > Complete sent mail job </div > ';
+        \Log::info('complete sent mail job ' . Carbon::now());
+
     }
 }

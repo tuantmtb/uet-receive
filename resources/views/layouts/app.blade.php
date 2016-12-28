@@ -5,6 +5,10 @@
 
     <title>{{config('app.name')}} - @section('title-raw') @yield('title') @show</title>
 
+    <meta name="description" content="Hệ thống nhận kết quả thi trường UET nhanh nhất"/>
+    <meta name="keywords" content="Ueter.xyz, uet.vnu.edu.vn, kết quả thi uet">
+    <meta name="author" content="Tran Minh Tuan - tuantmtb@gmail.com | Nguyen Van Nhat - nguyenvannhat152@gmail.com">
+
     @yield('styles')
     {{Html::script('metronic/global/plugins/jquery.min.js')}}
     {{Html::script('metronic/global/plugins/bootstrap/js/bootstrap.min.js')}}

@@ -1,0 +1,36 @@
+.fw-wrapper.page-title {
+    padding: 0 0 62px 0;
+    background: transparent;
+}
+
+.fw-wrapper.lgm-purple {
+    background: #652b7c url(../img/bg/bg.png) no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+
+}
+
+.fw-wrapper {
+    padding: 70px 0;
+    background: #fff;
+}
+
+.fw-wrapper h1 {
+    margin-top: 35px !important;
+}
+
+header {
+    display: block;
+}
+
+.page-header {
+    height: inherit !important;
+}
+
+.card-icon i {
+    margin: 0;
+}
+
+.card-title {
+    margin-bottom: 10px;
+}

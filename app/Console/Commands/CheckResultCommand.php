@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Http\Controllers\ReceiveResultController;
+use App\Http\Controllers\SubscribeResultController;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -37,8 +39,11 @@ class CheckResultCommand extends Command
      */
     public function handle()
     {
-        // TODO: code here
-        \Log::info("check result at " . Carbon::now());
-        $this->info("check result at " . Carbon::now());
+        $job = new ReceiveResultController();
+        // check course UET and send mail
+        \Log::info('');
+        \Log::info("======== Start command ===========" . Carbon::now());
+        $job->reCheck();
+        \Log::info("======== End command ===========" . Carbon::now());
     }
 }

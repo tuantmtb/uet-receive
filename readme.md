@@ -80,7 +80,10 @@ Install manual
 #### Step 4: Serve
 
             $ php artisan serve
+
+#### Step 5: Start job
             
+            $ php artisan schedule:run >> /dev/null 2>&1
                 
 ## Common problem
 
