@@ -7,7 +7,7 @@ Status: Alpha version
 
 Start date: 26/12/2016 
 
-Submission date: 18/12/2016
+Submission date: 28/12/2016
 
 ## Structure
 
@@ -31,7 +31,8 @@ Laravel 5
 
 PHP 5.4 above
 
-Support cron job
+Support crontab: readmore: http://stackoverflow.com/questions/37265929/laravel-task-scheduling-set-to-run-every-minute-but-it-run-only-once
+
 
 ## Deployment
 
@@ -53,6 +54,7 @@ Install manual
         $ php artisan key:generate
         $ php artisan migrate --seed
         $ php artisan serve
+          Run job on server, readmore: http://stackoverflow.com/questions/37265929/laravel-task-scheduling-set-to-run-every-minute-but-it-run-only-once
         
         - Open browser localhost:8080
 
