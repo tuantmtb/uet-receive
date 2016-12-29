@@ -9,7 +9,7 @@
     {{Html::style('metronic/dtui/css/index.css')}}
     {{Html::style('metronic/dtui/css/main.css')}}
     {{Html::style('css/receive-uet.css')}}
-
+    {{Html::style('metronic/global/plugins/morris/morris.css')}}
     <meta property="og:url" content="http://ueter.xyz"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Hóng điểm thi UET tốc độ ánh sáng"/>
@@ -131,9 +131,59 @@
 
                             <div class="m-heading-1 border-blue">
                                 <h4><i class="fa fa-facebook-square"></i><a href="https://www.facebook.com/sdpttl/"
-                                                                            target="_blank"> facebook</a></h4>
+                                                                            target="_blank"> Thông tin</a></h4>
                             </div>
-
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="dashboard-stat2 ">
+                                        <div class="display">
+                                            <div class="number">
+                                                <h3 class="font-green-sharp">
+                                        <span data-counter="counterup"
+                                              data-value="{{$user_count}}">{{$user_count}}</span>
+                                                    <small class="font-green-sharp"></small>
+                                                </h3>
+                                                <small>Số người sử dụng</small>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="icon-pie-chart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="dashboard-stat2 ">
+                                        <div class="display">
+                                            <div class="number">
+                                                <h3 class="font-red-haze">
+                                        <span data-counter="counterup"
+                                              data-value="{{$email_count}}">{{$email_count}}</span>
+                                                </h3>
+                                                <small>Email gửi đi</small>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="icon-like"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="dashboard-stat2 ">
+                                        <div class="display">
+                                            <div class="number">
+                                                <h3 class="font-blue-sharp">
+                                        <span data-counter="counterup"
+                                              data-value="{{$course_count}}">{{$course_count }}</span>
+                                                </h3>
+                                                <small>Môn học đã có kết quả</small>
+                                            </div>
+                                            <div class="icon">
+                                                <i class="icon-basket"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="fb-page" data-href="https://www.facebook.com/sdpttl/"
                                  data-small-header="true"
                                  data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true">
@@ -147,6 +197,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
             {{--<!-- END PAGE CONTENT BODY -->--}}
         </div>
@@ -158,4 +209,6 @@
 @section('scripts')
     @parent
     {{Html::script('js/receive-uet.js')}}
+    {{Html::script('metronic/global/plugins/counterup/jquery.waypoints.min.js')}}
+    {{Html::script('metronic/global/plugins/counterup/jquery.counterup.min.js')}}
 @endsection

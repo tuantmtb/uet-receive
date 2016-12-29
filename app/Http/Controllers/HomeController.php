@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\StudentsCourses;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user_count = User::count('*');
+        $email_count = StudentsCourses::whereNotNull('sent_mail')->count();
+        $course_count = Course::whereNotNull('link_origin')->count();
+        return view('home', compact('user_count', 'email_count', 'course_count'));
     }
 
     public function introduction()
