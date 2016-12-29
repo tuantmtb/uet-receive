@@ -19,42 +19,47 @@ class ReceiveResultController extends Controller
                 'lstClass' => '823'
             ]
         ]);
+        if ($result->getStatusCode() == 200) {
 
-        $body = $result->getBody()->getContents();
-        $body = trim($body);
-        $body = str_replace("\r\n", '', $body);
-        $body = str_replace("\t", '', $body);
-        $body = str_replace("\n", '', $body);
 
-        $matches = [];
-        $regex = '(<a href="[^"]*" class="newslist" target="_blank"><b>[^<]*<\/b><\/a>)';
-        preg_match_all($regex, $body, $matches);
+            $body = $result->getBody()->getContents();
+            $body = trim($body);
+            $body = str_replace("\r\n", '', $body);
+            $body = str_replace("\t", '', $body);
+            $body = str_replace("\n", '', $body);
 
-        foreach ($matches[0] as $a) {
-            $full_name = [];
-            preg_match('(<b>.*<\/b>)', $a, $full_name);
-            $full_name = $full_name[0];
-            $full_name = str_replace('<b>', '', $full_name);
-            $full_name = str_replace('</b>', '', $full_name);
+            $matches = [];
+            $regex = '(<a href="[^"]*" class="newslist" target="_blank"><b>[^<]*<\/b><\/a>)';
+            preg_match_all($regex, $body, $matches);
 
-            $parts = preg_split('( - )', $full_name);
-            $code = preg_replace('(\(.*\))', '', array_reverse($parts)[0]);
+            foreach ($matches[0] as $a) {
+                $full_name = [];
+                preg_match('(<b>.*<\/b>)', $a, $full_name);
+                $full_name = $full_name[0];
+                $full_name = str_replace('<b>', '', $full_name);
+                $full_name = str_replace('</b>', '', $full_name);
 
-            /**
-             * @var Course $course
-             */
-            $course = Course::whereCode($code)->first();
-            if (!$course->link_origin) {
-                $link_origin = [];
-                preg_match('(/Contents\/attach\/.*\.pdf)', $a, $link_origin);
-                $link_origin = 'http://www.coltech.vnu.edu.vn' . $link_origin[0];
-                $course->link_origin = $link_origin;
-                $course->save();
+                $parts = preg_split('( - )', $full_name);
+                $code = preg_replace('(\(.*\))', '', array_reverse($parts)[0]);
+
+                /**
+                 * @var Course $course
+                 */
+                $course = Course::whereCode($code)->first();
+                if ($course != null && !$course->link_origin) {
+                    $link_origin = [];
+                    preg_match('(/Contents\/attach\/.*\.pdf)', $a, $link_origin);
+                    $link_origin = 'http://www.coltech.vnu.edu.vn' . $link_origin[0];
+                    $course->link_origin = $link_origin;
+                    $course->save();
+                }
             }
+            echo '<div>reCheck UET success</div>';
+            \Log::info('reCheck UET success ' . Carbon::now());
+        } else {
+            echo '<div>reCheck UET fail because site uet die</div>';
+            \Log::info('reCheck UET fail because site uet die ' . Carbon::now());
         }
-        echo '<div>reCheck UET success</div>';
-        \Log::info('reCheck UET success ' . Carbon::now());
-        $this->checkSubcribe();
         return redirect('/');
     }
 
@@ -81,19 +86,22 @@ class ReceiveResultController extends Controller
                         echo '<div>' . ($user->email) . ' - ' . $course->name . ' - sent before </div > ';
                         \Log::info(($user->email) . ' - ' . $course->name . ' - sent before - ' . Carbon::now());
                     } else {
-
+                        $student->pivot->sent_mail = 1;
+                        $student->pivot->save();
+                        \Log::info(($user->email) . ' - ' . $course->name . ' - set queue send mail - ' . Carbon::now());
                         try {
-                            Mail::queue('layouts.mail.course_noti', ['course' => $course, 'user' => $user], function (Message $msg) use ($user, $course, $student) {
+                            Mail::later(5, 'layouts.mail.course_noti', ['course' => $course, 'user' => $user], function (Message $msg) use ($user, $course, $student) {
                                 $msg->to($user->email, $user->name)
                                     ->subject('[' . config('app . name') . '] Đã có điểm môn ' . $course->name);
-                                $student->pivot->sent_mail = 1;
-                                $student->pivot->save();
                                 echo ' < div>' . ($user->email) . ' - ' . $course->name . ' - prepare sending mail </div > ';
-                                \Log::info(($user->email) . ' - ' . $course->name . ' - prepare sending mail - ' . Carbon::now());
+
                             });
 
                         } catch (\Exception $ignored) {
+                            $student->pivot->sent_mail = null;
+                            $student->pivot->save();
                             echo $ignored;
+
                             \Log::warning('Mail Exception - ' . $ignored);
                         }
                     }

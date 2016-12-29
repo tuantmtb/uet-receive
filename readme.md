@@ -55,10 +55,32 @@ Install manual
         $ php artisan serve
         
         - Open browser localhost:8080
+
+4. Setup queue
+
+Set the QUEUE_DRIVER in your .env, config/queue.php file:
+
+        QUEUE_DRIVER=database
+        $ php artisan queue:table
+        $ php artisan migrate
+        $ php artisan queue:listen
+        $ composer dump
+        $ composer dump-autoload
+        $ php artisan config:cache
+
+5. set queue always
         
+        For ubuntu
+        $ nohup php artisan queue:work --daemon &
+
+
+
+
 4. Account user
 
         Admin account: 
+        
+        
         
 ## Development
 
@@ -127,8 +149,6 @@ Composer.json:
             "doctrine/dbal": "^2.5",
             "artisaninweb/laravel-soap": "0.3.*"
             "anhskohbo/no-captcha":...
-
-            
         }
 
 ## Developers

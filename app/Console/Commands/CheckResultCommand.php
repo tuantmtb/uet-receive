@@ -43,7 +43,8 @@ class CheckResultCommand extends Command
         // check course UET and send mail
         \Log::info('');
         \Log::info("======== Start command ===========" . Carbon::now());
-        $job->reCheck();
+        $job->reCheck(); // check uet site
+        $job->checkSubcribe(); // sent mail
         \Log::info("======== End command ===========" . Carbon::now());
     }
 }

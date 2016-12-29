@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('command:checkresult')->everyMinute()->sendOutputTo(storage_path('logs/schedule.log'));
+        $schedule->command('command:checkresult')->everyThirtyMinutes()->sendOutputTo(storage_path('logs/schedule.log'));
     }
 
     /**
