@@ -16,7 +16,7 @@ class ReceiveResultController extends Controller
         $client = new Client(); //GuzzleHttp\Client
         $result = $client->post('http://www.coltech.vnu.edu.vn/news4st/test.php', [
             'form_params' => [
-                'lstClass' => '823'
+                'lstClass' => '825'
             ]
         ]);
         if ($result->getStatusCode() == 200) {
@@ -92,7 +92,7 @@ class ReceiveResultController extends Controller
                         try {
                             Mail::later(5, 'layouts.mail.course_noti', ['course' => $course, 'user' => $user], function (Message $msg) use ($user, $course, $student) {
                                 $msg->to($user->email, $user->name)
-                                    ->subject('[' . config('app . name') . '] Đã có điểm môn ' . $course->name);
+                                    ->subject('[Ueter.xyz] Đã có điểm môn ' . $course->name);
                                 echo ' < div>' . ($user->email) . ' - ' . $course->name . ' - prepare sending mail </div > ';
 
                             });

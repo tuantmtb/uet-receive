@@ -71,7 +71,7 @@
                                     <div class="input-group left-addon">
                                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                                         {{Form::email('email', old('email'), ['class' => 'form-control', 'required' => '', 'maxLength' => 255])}}
-                                        {{Form::label('email', 'Email')}}
+                                        {{Form::label('email', 'Gmail')}}
                                     </div>
                                 </div>
                                 <div class="form-group form-md-line-input form-md-floating-label has-error">
@@ -101,8 +101,8 @@
                     <div class="col-md-8">
                         <div class="portlet light">
                             <div class="m-heading-1 border-green">
-                                <h2 id="title-helper">Các môn học kỳ I <span style="display: none;"
-                                                                             id="fullname-intro"></span></h2>
+                                <h2 id="title-helper">Các môn học kỳ II <span style="display: none;"
+                                                                              id="fullname-intro"></span></h2>
                             </div>
                             <div class="row" id="dialog-helper">
                                 <div class="col-md-6">

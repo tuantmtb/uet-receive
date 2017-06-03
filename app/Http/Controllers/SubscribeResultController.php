@@ -20,7 +20,7 @@ class SubscribeResultController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'code' => 'integer|required|between:1,99999999',
-            'email' => 'email|required|max:255',
+            'email' => 'email|required|max:255|regex:/^[A-Za-z0-9\.]*@(gmail)[.](com)$/',
             'g-recaptcha-response' => 'required|captcha'
         ]);
 
@@ -58,7 +58,6 @@ class SubscribeResultController extends Controller
         $userFind = User::where('email', '=', $request->email)->get();
         if ($userFind->count() < 1) {
             // create user
-            // TODO need test funcion
             $user = new User();
             $user->email = $request->email;
             $user->name = $student->name;

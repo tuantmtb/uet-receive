@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::post('/dang-ky-nhan-email', 'SubscribeResultController@store')->name('subscribe.post'); // form dang ky
 
 // logic
-Route::get('/parse', 'SoapParserController@parse');
+
 Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
 Route::get('/recheck', 'ReceiveResultController@reCheck');
 Route::get('/checkSubcribe', 'ReceiveResultController@checkSubcribe');

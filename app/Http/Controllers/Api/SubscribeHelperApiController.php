@@ -18,7 +18,7 @@ class SubscribeHelperApiController extends Controller
         if ($studentFind->count() < 1) {
             $output = [];
             $output["status"] = "not_found";
-            $output["info"] = "If you want to hack system, anw say hi to me: fb.com/tuantmtb ;)";
+            $output["info"] = "If you want to hack it, anw say hi to me: fb.com/tuantmtb ;)";
             return response()->json($output);
         }
         $output = [];
@@ -31,7 +31,7 @@ class SubscribeHelperApiController extends Controller
         $output["name"] = $student->name;
         $output["class"] = $student->clazz->name;
         $output["courses"] = $student->courses;
-        $output["info"] = "If you want to hack system, anw say hi to me: fb.com/tuantmtb ;)";
+        $output["info"] = "If you want to hack it, anw say hi to me: fb.com/tuantmtb ;)";
         return response()->json($output);
     }
 
