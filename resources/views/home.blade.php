@@ -14,6 +14,8 @@
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Hóng điểm thi UET tốc độ ánh sáng"/>
     <meta property="og:description" content="Hệ thống nhận kết quả thi trường UET nhanh nhất"/>
+    <meta property="og:site_name" content="Hóng điểm thi UET tốc độ ánh sáng"/>    
+    <meta property="og:image" content="https://ueter.xyz/img/og-img.png"/>
 
 @endsection
 

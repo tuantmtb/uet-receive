@@ -174,6 +174,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Artisaninweb\SoapWrapper\ServiceProvider::class,
+        Casperlaitw\LaravelFbMessenger\LaravelFbMessengerServiceProvider::class,
 
 
         //
@@ -242,7 +243,7 @@ return [
         'Entrust' => Zizaco\Entrust\EntrustFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
-        'SoapWrapper' => 'Artisaninweb\SoapWrapper\Facades\SoapWrapper',
+        'Menu' => Casperlaitw\LaravelFbMessenger\Facades\MessengerMenu::class,
 
 
     ],
