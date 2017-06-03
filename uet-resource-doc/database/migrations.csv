@@ -1,0 +1,10 @@
+id,"migration",batch
+191,"2014_10_12_000000_create_users_table",1
+192,"2014_10_12_100000_create_password_resets_table",1
+193,"2016_10_12_200000_create_permission_tables",1
+194,"2016_12_26_135047_entrust_setup_tables",1
+195,"2016_12_26_151708_create_terms_table",1
+196,"2016_12_26_152007_create_clazzs_table",1
+197,"2016_12_26_152128_create_students_table",1
+198,"2016_12_26_152931_create_courses_table",1
+199,"2016_12_26_153733_create_students_courses_table",1

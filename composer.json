@@ -13,6 +13,7 @@
     "artisaninweb/laravel-soap": "0.3.*",
     "barryvdh/laravel-debugbar": "^2.3",
     "barryvdh/laravel-ide-helper": "^2.2",
+    "casperlaitw/laravel-fb-messenger": "^1.4",
     "doctrine/dbal": "^2.5",
     "guzzlehttp/guzzle": "^6.2",
     "laracasts/flash": "^2.0",
