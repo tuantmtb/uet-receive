@@ -12,22 +12,22 @@ use Illuminate\Database\Query\Builder;
  * @property int $id
  * @property string $code
  * @property string $name
- * @property Carbon $date
+ * @property string $date
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property int $clazz_id
  * @property int $user_id
  * @property-read \App\Clazz $clazz
- * @property-read \App\User $user
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Course[] $courses
- * @method static Builder|Student whereId($value)
- * @method static Builder|Student whereCode($value)
- * @method static Builder|Student whereName($value)
- * @method static Builder|Student whereDate($value)
- * @method static Builder|Student whereClazzId($value)
- * @method static Builder|Student whereUserId($value)
- * @method static Builder|Student whereCreatedAt($value)
- * @method static Builder|Student whereUpdatedAt($value)
+ * @property-read \App\User $user
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereClazzId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereDate($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Student whereUserId($value)
  * @mixin \Eloquent
  */
 class Student extends Model

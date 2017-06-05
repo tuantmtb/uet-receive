@@ -16,3 +16,6 @@ bootstrap/cache/
 
 # IDE configurations
 /.idea
+
+/.phpstorm.meta.php
+/_ide_helper.php

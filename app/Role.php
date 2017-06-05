@@ -8,22 +8,22 @@ use Zizaco\Entrust\EntrustRole;
 
 
 /**
- * Class Role
+ * App\Role
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $display_name
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read Collection|User[] $users
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Permission[] $perms
- * @method static Builder|Role whereId($value)
- * @method static Builder|Role whereName($value)
- * @method static Builder|Role whereDisplayName($value)
- * @method static Builder|Role whereDescription($value)
- * @method static Builder|Role whereUpdatedAt($value)
- * @method static Builder|Role whereCreatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\User[] $users
+ * @method static \Illuminate\Database\Query\Builder|\App\Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Role whereDescription($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Role whereDisplayName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Role whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Role whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Role whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Role extends EntrustRole

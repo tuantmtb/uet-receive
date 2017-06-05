@@ -10,7 +10,7 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 /**
  * App\User
  *
- * @property integer $id
+ * @property int $id
  * @property string $name
  * @property string $email
  * @property string $password
@@ -19,18 +19,16 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $unreadNotifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[] $roles
  * @property-read \App\Student $student
- * @method static Builder|Permission whereId($value)
- * @method static Builder|Permission whereName($value)
- * @method static Builder|Permission whereEmail($value)
- * @method static Builder|Permission wherePassword($value)
- * @method static Builder|Permission whereImagePath($value)
- * @method static Builder|Permission whereRememberToken($value)
- * @method static Builder|Permission whereUpdatedAt($value)
- * @method static Builder|Permission whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereImagePath($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
