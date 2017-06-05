@@ -6,6 +6,7 @@ use App\Course;
 use App\StudentsCourses;
 use App\User;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {

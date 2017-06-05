@@ -25,3 +25,4 @@ Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
 Route::get('/recheck', 'ReceiveResultController@reCheck');
 Route::get('/checkSubcribe', 'ReceiveResultController@checkSubcribe');
 
+Route::get('/download', 'ReceiveResultController@download');

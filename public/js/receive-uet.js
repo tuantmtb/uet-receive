@@ -19,9 +19,9 @@ $("#code").keyup(function ($e) {
                 $("#class").text(data["class"]);
                 $("#tbody-table-course").text("");
                 $.each(data["courses"], function (i, course) {
-                    if (course.link_origin) {
+                    if (course.link_remote) {
                         $("#tbody-table-course").append("<tr> <td> " + (i + 1) +
-                            "</td> <td> <a target=\"_blank\" href=\" " + course.link_origin + " \"> " + course.name + "</a></td> <td>" + course.code + "</td> <td>" + course.credit + "</td> <td> <a target=\"_blank\" href=\" " + course.link_origin + " \"><span class=\"label label-sm label-success\" style=\"font-size:12px \"> Đã có điểm </span> </a></td></tr>"
+                            "</td> <td> <a target=\"_blank\" href=\" " + "/download?link=" + course.link_remote + " \"> " + course.name + "</a></td> <td>" + course.code + "</td> <td>" + course.credit + "</td> <td> <a target=\"_blank\" href=\" " + "/download?link=" + course.link_remote + " \"><span class=\"label label-sm label-success\" style=\"font-size:12px \"> Đã có điểm </span> </a></td></tr>"
                         );
                     } else {
                         $("#tbody-table-course").append("<tr> <td> " + (i + 1) +
