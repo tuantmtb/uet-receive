@@ -8,10 +8,17 @@
     <meta name="description" content="Hệ thống nhận kết quả thi trường UET nhanh nhất"/>
     <meta name="keywords" content="Ueter.xyz, uet.vnu.edu.vn, kết quả thi uet">
     <meta name="author" content="Tran Minh Tuan - tuantmtb@gmail.com | Nguyen Van Nhat - nguyenvannhat152@gmail.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('styles')
-    {{Html::script('metronic/global/plugins/jquery.min.js')}}
-    {{Html::script('metronic/global/plugins/bootstrap/js/bootstrap.min.js')}}
+
+
+    <script>
+        window.Laravel = {
+            csrfToken: '{{csrf_token()}}',
+            appUrl: '{{config('app.url')}}'
+        };
+    </script>
 </head>
 <body class="page-header-fixed page-content-white page-full-width page-md page-header-menu-fixed" id="thesis_body">
 
@@ -25,11 +32,6 @@
 
 @section('scripts')
     {{Html::script('js/utils.js')}}
-    @if(Auth::check())
-        <script type="text/javascript">
-            replaceImgAsync('{{Auth::user()->image_path}}', $('#user_image'), 'img-circle');
-        </script>
-    @endif
     @include('vendor.flash.toastr')
     <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -25,4 +25,5 @@ Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
 Route::get('/recheck', 'ReceiveResultController@reCheck');
 Route::get('/checkSubcribe', 'ReceiveResultController@checkSubcribe');
 
-Route::get('/download', 'ReceiveResultController@download');
+Route::get('/download', 'ReceiveResultController@download')->name('download');
+Route::get('courses/result', 'ResultCoursesController@resultCourses')->name('course.result');

@@ -1,4 +1,6 @@
 @section('core-plugins')
+    {{Html::script('metronic/global/plugins/jquery.min.js')}}
+    {{Html::script('metronic/global/plugins/bootstrap/js/bootstrap.min.js')}}
     {{Html::script('metronic/global/plugins/js.cookie.min.js')}}
     {{Html::script('metronic/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')}}
     {{Html::script('metronic/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}
@@ -11,6 +13,7 @@
 
 @section('page-level-plugins')
     {{Html::script('metronic/global/plugins/bootstrap-toastr/toastr.min.js')}}
+    {{Html::script('metronic/global/plugins/bootbox/bootbox.min.js')}}
 @show
 
 @section('theme-global-scripts')
@@ -18,7 +21,6 @@
 @show
 
 @section('page-level-scripts')
-    {{Html::script('metronic/pages/scripts/ui-toastr.min.js')}}
 @show
 
 @section('layout-scripts')
