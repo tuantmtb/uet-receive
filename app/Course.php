@@ -17,17 +17,17 @@ use Illuminate\Database\Query\Builder;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property int $term_id
- * @property-read \App\Term $term
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Student[] $students
- * @method static Builder|Course whereId($value)
- * @method static Builder|Course whereCode($value)
- * @method static Builder|Course whereName($value)
- * @method static Builder|Course whereCredit($value)
- * @method static Builder|Course whereCreatedAt($value)
- * @method static Builder|Course whereUpdatedAt($value)
- * @method static Builder|Course whereTermId($value)
- * @method static Builder|Course whereLinkOrigin($value)
- * @method static Builder|Course whereLinkRemote($value)
+ * @property-read \App\Term $term
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereCredit($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereLinkOrigin($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereLinkRemote($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereTermId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Course whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Course extends Model

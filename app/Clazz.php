@@ -12,13 +12,13 @@ use Illuminate\Database\Query\Builder;
  *
  * @property int $id
  * @property string $name
- * @property Carbon $created_at
- * @property Carbon $updated_at
- * @property-read Collection | Student[] $students
- * @method static Builder|Clazz whereId($value)
- * @method static Builder|Clazz whereName($value)
- * @method static Builder|Clazz whereCreatedAt($value)
- * @method static Builder|Clazz whereUpdatedAt($value)
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Student[] $students
+ * @method static \Illuminate\Database\Query\Builder|\App\Clazz whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Clazz whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Clazz whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Clazz whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class Clazz extends Model
