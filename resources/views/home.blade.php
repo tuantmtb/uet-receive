@@ -10,13 +10,12 @@
     {{Html::style('metronic/dtui/css/main.css')}}
     {{Html::style('css/receive-uet.css')}}
     {{Html::style('metronic/global/plugins/morris/morris.css')}}
-    <meta property="og:url" content="http://hong.sguet.com"/>
+    <meta property="og:url" content="http://ueter.xyz"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Hóng điểm thi UET tốc độ ánh sáng"/>
     <meta property="og:description" content="Hệ thống nhận kết quả thi trường UET nhanh nhất"/>
     <meta property="og:site_name" content="Hóng điểm thi UET tốc độ ánh sáng"/>    
-    <meta property="og:image" content="http://hong.sguet.com/img/og-img.png"/>
-
+    <meta property="og:image" content="http://ueter.xyz/img/og-img.png"/>
 @endsection
 
 @section('content')
@@ -170,20 +169,22 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                    <div class="dashboard-stat2 ">
+                                    <a href="javascript:" id="result-courses" class="tooltips" data-original-title="Xem tất cả">
+                                    <div class="dashboard-stat2 bg-blue">
                                         <div class="display">
                                             <div class="number">
-                                                <h3 class="font-blue-sharp">
+                                                <h3 class="font-white">
                                         <span data-counter="counterup"
                                               data-value="{{$course_count}}">{{$course_count }}</span>
                                                 </h3>
-                                                <small>Môn học đã có kết quả</small>
+                                                <small class="font-grey-salt">Môn học đã có kết quả</small>
                                             </div>
                                             <div class="icon">
-                                                <i class="icon-basket"></i>
+                                                <i class="icon-basket font-grey-salt"></i>
                                             </div>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="fb-page" data-href="https://www.facebook.com/sdpttl/"
@@ -210,6 +211,16 @@
 
 @section('scripts')
     @parent
+    {{Html::script('metronic/global/plugins/jquery.pulsate.min.js')}}
+    <script>
+        $(function() {
+            $('#result-courses').children().pulsate({color:"#399bc3",repeat:3});
+            $('#result-courses').click(function() {
+                bootbox.detailDialog({}, '{{route('course.result')}}', {size: 'large'});
+            })
+        })
+    </script>
+
     {{Html::script('js/receive-uet.js')}}
     {{Html::script('metronic/global/plugins/counterup/jquery.waypoints.min.js')}}
     {{Html::script('metronic/global/plugins/counterup/jquery.counterup.min.js')}}
