@@ -10,12 +10,12 @@
     {{Html::style('metronic/dtui/css/main.css')}}
     {{Html::style('css/receive-uet.css')}}
     {{Html::style('metronic/global/plugins/morris/morris.css')}}
-    <meta property="og:url" content="http://ueter.xyz"/>
+    <meta property="og:url" content="http://hong.sguet.com"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Hóng điểm thi UET tốc độ ánh sáng"/>
     <meta property="og:description" content="Hệ thống nhận kết quả thi trường UET nhanh nhất"/>
     <meta property="og:site_name" content="Hóng điểm thi UET tốc độ ánh sáng"/>    
-    <meta property="og:image" content="http://ueter.xyz/img/og-img.png"/>
+    <meta property="og:image" content="http://hong.sguet.com/img/og-img.png"/>
 
 @endsection
 

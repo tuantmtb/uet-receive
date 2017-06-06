@@ -6,7 +6,7 @@
     <li>Tải về danh sách
         điểm {{Html::link(config('app.env') . '/download/link=?'.$course->link_remote, 'tại đây')}}</li>
     <li>Hoặc {{Html::link($course->link_origin, 'tại đây')}}</li>
-    <li>Xem các môn khác <a href="http://ueter.xyz">tại đây</a></li>
+    <li>Xem các môn khác <a href="https://ueter.xyz">tại đây</a></li>
 </ul>
 <div>Best regards,</div>
 <div>{{config('app.name')}}.</div>
