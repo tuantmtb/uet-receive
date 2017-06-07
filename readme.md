@@ -76,13 +76,6 @@ Set the QUEUE_DRIVER in your .env, config/queue.php file:
         $ nohup php artisan queue:work --daemon &
 
 
-
-
-4. Account user
-
-        Admin account: 
-        
-        
         
 ## Development
 
@@ -115,7 +108,6 @@ Set the QUEUE_DRIVER in your .env, config/queue.php file:
 ## Common problem
 
 1. Can not seed migrate:
-            
             edit ".env": set CACHE_DRIVER=array
             $ php artisan config:cache
             $ php artisan migrate:refresh --seed
@@ -123,14 +115,13 @@ Set the QUEUE_DRIVER in your .env, config/queue.php file:
             $ composer dump-autoload
             $ php artisan db:seed hoặc $ php artisan migrate:refresh --seed
             
-2. Form can not post data:
-
+2. If form can not post data:
             Add {{Form::token()}} in form view
             
 ## PhpStorm plugin instructions
     
-            Settings > Plugins > Browse repositories... > Tìm 'Laravel plugin' > Cài 
-            Settings > Languages and Frameworks > Php > Laravel > Bật 'Enable plugin for this project'
+            Settings > Plugins > Browse repositories... > Find 'Laravel plugin' > Install 
+            Settings > Languages and Frameworks > Php > Laravel > 'Enable plugin for this project'
             
 ## TODO
 
@@ -139,19 +130,11 @@ Set the QUEUE_DRIVER in your .env, config/queue.php file:
     Recommend subject
       
       
-## Library
+## Stack
 
-Composer.json:
-
-        {
-            "pda/pheanstalk": "^3.1",
-            "zizaco/entrust": "5.2.x-dev",
-            "barryvdh/laravel-debugbar": "^2.3",
-            "barryvdh/laravel-ide-helper": "^2.2",
-            "doctrine/dbal": "^2.5",
-            "artisaninweb/laravel-soap": "0.3.*"
-            "anhskohbo/no-captcha":...
-        }
+    Laravel
+    Mysql
+    Redis (cache query)
 
 ## Developers
 

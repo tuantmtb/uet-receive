@@ -39,7 +39,7 @@ class DumpJsonDataSeeder extends Seeder
 
 //        $storagePath = Storage::disk('local')->getDriver()->getAdapter()->getPathPrefix();
 //        $json_path = $storagePath . "dump/raw_data.json";
-        $json_path = base_path('uet-resource-doc/dump/data_hocki2-2017.json');
+        $json_path = base_path('uet-resource-doc/dump/example.json');
 //        $json_data = File::get($json_path);
         $results = json_decode(file_get_contents($json_path), true);
 //        dd($results);
