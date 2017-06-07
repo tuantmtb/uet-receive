@@ -21,7 +21,7 @@ Route::post('/dang-ky-nhan-email', 'SubscribeResultController@store')->name('sub
 
 // logic
 
-Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
+//Route::get('/parseDOM', 'ReceiveResultController@parseDOM');
 Route::get('/recheck', 'ReceiveResultController@reCheck');
 Route::get('/checkSubcribe', 'ReceiveResultController@checkSubcribe');
 
